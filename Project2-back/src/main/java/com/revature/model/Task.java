@@ -5,14 +5,14 @@ public class Task {
 
 	private int id;
 	private String description;
-	private int completed;	//originally was a boolean, but DB schema has this as either 0 or 1
+	private boolean completed;	//may need to be changed to int to reflect DB schema
 	
 	//@ManyToOne
 	private Card card;
 
 	public Task() {}
 
-	public Task(int id, String description, int completed, Card card) {
+	public Task(int id, String description, boolean completed, Card card) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -36,11 +36,11 @@ public class Task {
 		this.description = description;
 	}
 
-	public int getCompleted() {
+	public boolean getCompleted() {
 		return completed;
 	}
 
-	public void setCompleted(int completed) {
+	public void setCompleted(boolean completed) {
 		this.completed = completed;
 	}
 

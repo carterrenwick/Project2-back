@@ -1,5 +1,13 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 /*
  * boolean instance variables may need to be changed to type int
  * in order to reflect DB schema
@@ -7,14 +15,35 @@ package com.revature.model;
  * permissions in this class are subject to change
  */
 
+@Entity
+@Table(name="BOARD_USER_ROLE")
 public class BoardUserRole {
 
+	
+	@Id
+	@Column(name="BUR_ID")
+	@SequenceGenerator(sequenceName="BUR_SEQ", name="BUR_SEQ")
+	@GeneratedValue(generator="BUR_SEQ",
+	strategy=GenerationType.SEQUENCE)
 	private int id;
+	
+	@Column(name="ROLE_NAME")
 	private String roleName;
+	
+	@Column(name="CREATE_C")
 	private boolean createCard;
+	
+	@Column(name="MOVE_C")
 	private boolean moveCard;
+	
+	
+	@Column(name="EDIT_C")
 	private boolean editCard;
+	
+	@Column(name="INVITE_U")
 	private boolean inviteUser;
+	
+	@Column(name="CREATE_S")
 	private boolean createSwimLane;
 	
 	public BoardUserRole() {}

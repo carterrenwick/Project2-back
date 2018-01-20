@@ -1,27 +1,66 @@
 package com.revature.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-//Lists could be changed to a Set (no order/no duplicates)
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="SWIM_LANE")
 public class SwimLane {
 	
+	
+	
+	@Id
+	@Column(name="SL_ID")
+	@SequenceGenerator(sequenceName="SWIMLANE_SEQ", name="SWIMLANE_SEQ")
+	@GeneratedValue(generator="SWIMLANE_SEQ",
+	strategy=GenerationType.SEQUENCE)
 	private int id;
+	
+	
+	
+	@Column(name="SL_NAME")
 	private String name;
 	
-	//@ManyToOne
-	private Board board;
+	@Column(name="SL_ORDER")
+	private int order;
 	
-	//@OneToMany
+	
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="C_ID")	
 	private List<Card> cards;
 
-	public SwimLane() {}
+	public SwimLane() {
+		this.cards = new ArrayList<Card>();
+	}
 
 	public SwimLane(int id, String name, Board board, List<Card> cards) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.board = board;
+		
 		this.cards = cards;
+	}
+
+	
+	
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
 	}
 
 	public int getId() {
@@ -40,13 +79,6 @@ public class SwimLane {
 		this.name = name;
 	}
 
-	public Board getBoard() {
-		return board;
-	}
-
-	public void setBoard(Board board) {
-		this.board = board;
-	}
 
 	public List<Card> getCards() {
 		return cards;
@@ -58,6 +90,7 @@ public class SwimLane {
 
 	@Override
 	public String toString() {
-		return "SwimLane [id=" + id + ", name=" + name + ", board=" + board + ", cards=" + cards + "]";
+		return "SwimLane [id=" + id + ", name=" + name + ", order=" + order + ", cards=" + cards + "]";
 	}
+
 }

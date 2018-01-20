@@ -6,4 +6,5 @@ import com.revature.model.AsbUser;
 
 public interface AsbUserDao  extends JpaRepository<AsbUser,Integer>{
 
+	public boolean existsByUsername(String username);
 }

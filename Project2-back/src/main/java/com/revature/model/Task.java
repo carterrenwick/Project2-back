@@ -1,14 +1,35 @@
 package com.revature.model;
 
-//Lists could be changed to a Set (no order/no duplicates)
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TASK")
 public class Task {
 
-	private int id;
-	private String description;
-	private boolean completed;	//may need to be changed to int to reflect DB schema
 	
-	//@ManyToOne
-	private Card card;
+	@Id
+	@Column(name="T_ID")
+	@SequenceGenerator(sequenceName="TASK_SEQ", name="TASK_SEQ")
+	@GeneratedValue(generator="TASK_SEQ",
+	strategy=GenerationType.SEQUENCE)
+	private int id;
+	
+	@Column(name="T_DESC")
+	private String description;
+	
+	@Column(name="T_ORDER")
+	private int order;
+	
+	
+
+	private boolean completed;	//may need to be changed to int to reflect DB schema
+
 
 	public Task() {}
 
@@ -17,7 +38,16 @@ public class Task {
 		this.id = id;
 		this.description = description;
 		this.completed = completed;
-		this.card = card;
+
+	}
+	
+	
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
 	}
 
 	public int getId() {
@@ -44,16 +74,11 @@ public class Task {
 		this.completed = completed;
 	}
 
-	public Card getCard() {
-		return card;
-	}
-
-	public void setCard(Card card) {
-		this.card = card;
-	}
-
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", description=" + description + ", completed=" + completed + ", card=" + card + "]";
+		return "Task [id=" + id + ", description=" + description + ", completed=" + completed + "]";
 	}
+
+
+
 }

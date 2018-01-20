@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.revature.model.AsbUser;
 
 public interface AsbUserDao  extends JpaRepository<AsbUser,Integer>{
-
+	
+	AsbUser findByUsername(String username);
 }

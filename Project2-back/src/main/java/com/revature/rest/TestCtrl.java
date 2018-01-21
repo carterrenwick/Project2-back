@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dao.AsbUserDao;
 import com.revature.model.AsbUser;
+import com.revature.model.Board;
+import com.revature.model.Card;
+import com.revature.model.SwimLane;
+import com.revature.model.Task;
 
 @RestController
 public class TestCtrl {
@@ -35,6 +39,18 @@ public class TestCtrl {
 		
 		AsbUser u = userDao.save(new AsbUser("Bobbert","123","Bob","Bert"));
 		return u;
+	}
+	
+	@GetMapping("/addToBobbert")
+	public Board addToBobbert()
+	{
+		AsbUser u = userDao.findByUsername("Bobbert");
+		u.getBoards().add(new Board("TestBoard"));
+		u.getBoards().get(0).getSwimLanes().add(new SwimLane("TestLane",1));
+		u.getBoards().get(0).getSwimLanes().get(0).getCards().add(new Card(10,"TestCard","This is a test", 1));
+		u.getBoards().get(0).getSwimLanes().get(0).getCards().get(0).getTasks().add(new Task("Test Task",1,false));
+		u = userDao.save(u);
+		return u.getBoards().get(0);
 	}
 	
 	@GetMapping("/getAll")

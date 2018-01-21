@@ -1,0 +1,6 @@
+package com.revature.service;
+
+public interface AsbUserServiceContract 
+{
+	public AsbUser validateUser(String username, String password);
+}

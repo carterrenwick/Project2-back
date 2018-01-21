@@ -18,7 +18,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="BOARD_USER_ROLE")
 public class BoardUserRole {
-
 	
 	@Id
 	@Column(name="BUR_ID")
@@ -35,7 +34,6 @@ public class BoardUserRole {
 	
 	@Column(name="MOVE_C")
 	private boolean moveCard;
-	
 	
 	@Column(name="EDIT_C")
 	private boolean editCard;

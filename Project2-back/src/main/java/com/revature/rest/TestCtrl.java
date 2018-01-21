@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dao.AsbUserDao;
+import com.revature.dao.BoardDao;
 import com.revature.model.AsbUser;
 import com.revature.model.Board;
 import com.revature.model.Card;
@@ -21,6 +22,9 @@ import com.revature.service.TaskServiceContract;
 public class TestCtrl {
 	@Autowired
 	AsbUserDao userDao;
+	
+	@Autowired
+	BoardDao boardDao;
 	
 	
 	@PostMapping("/person")
@@ -60,4 +64,10 @@ public class TestCtrl {
 		return userDao.findAll();
 	}
 	
+	@GetMapping("/getAllBoards")
+	public List<Board> getAllBoards()
+	{
+		return boardDao.findAll();
+	}
+  
 }

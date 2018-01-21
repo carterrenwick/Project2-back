@@ -41,7 +41,13 @@ public class Task {
 
 	}
 	
-	
+	public Task(String description, int order, boolean completed) {
+		super();
+		this.description = description;
+		this.order = order;
+		this.completed = completed;
+	}
+
 	public int getOrder() {
 		return order;
 	}

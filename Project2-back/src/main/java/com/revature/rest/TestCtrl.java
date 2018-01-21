@@ -24,7 +24,6 @@ public class TestCtrl {
 		return U;
 	}
 
-	
 	@GetMapping("/C/{candy}")
 	public String newReq(@PathVariable String candy ) {
 		

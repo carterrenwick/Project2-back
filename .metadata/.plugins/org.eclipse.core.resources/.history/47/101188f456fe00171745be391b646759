@@ -1,0 +1,9 @@
+package com.revature.rest;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController("/delete")
+public class DeleteCtrl 
+{
+
+}

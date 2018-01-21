@@ -1,0 +1,31 @@
+package com.revature.rest;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.revature.model.AsbUser;
+
+
+@RestController
+public class LoginLogoutCtrl 
+{
+	@Autowired
+	HttpSession httpSession;
+	
+	@GetMapping("/logout")
+	public void logout()
+	{
+		httpSession.invalidate();
+	}
+	
+	@PostMapping("/login")
+	public void login(@RequestBody String username, @RequestBody String password)
+	{
+		
+	}
+}

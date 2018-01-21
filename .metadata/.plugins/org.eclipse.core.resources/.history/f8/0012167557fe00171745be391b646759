@@ -1,0 +1,16 @@
+package com.revature.rest;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController("/delete")
+public class DeleteCtrl 
+{
+	@GetMapping("/asbUser/{bid}")
+	public void deleteBoard(@PathVariable int bid)
+	{
+		@Autowired
+		BoardService service;
+	}
+}

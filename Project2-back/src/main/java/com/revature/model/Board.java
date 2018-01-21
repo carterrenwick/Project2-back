@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 //Lists could be changed to a Set (no order/no duplicates)
 @Entity
 @Table(name="BOARD")
@@ -36,8 +38,9 @@ public class Board {
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name="USER_BOARDS",
-	joinColumns=@JoinColumn(name="B_ID"),
-	inverseJoinColumns=@JoinColumn(name="U_ID"))
+		joinColumns=@JoinColumn(name="B_ID"),
+		inverseJoinColumns= @JoinColumn(name="U_ID"))
+	@JsonManagedReference
 	private Set<AsbUser> users;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
@@ -98,8 +101,8 @@ public class Board {
 		this.swimLanes = swimLanes;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Board [id=" + id + ", name=" + name + " + ", swimLanes=" + swimLanes + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Board [id=" + id + ", name=" + name + ", swimLanes=" + swimLanes + "]";
+	}
 }

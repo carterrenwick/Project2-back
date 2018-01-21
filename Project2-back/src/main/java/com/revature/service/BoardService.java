@@ -5,18 +5,23 @@ import org.springframework.stereotype.Service;
 
 import com.revature.dao.BoardDao;
 import com.revature.model.Board;
-import com.revature.serviceInterface.BoardSer;
 
 @Service
-public class BoardService implements BoardSer{
+public class BoardService implements BoardServiceContract{
 
 	@Autowired
 	BoardDao boardDao;
 	
-	public void createBoard(String boardName) {
+	public void createBoard(Board board) {
 		
-		Board board = new Board();
-		board.setName(boardName);
 		boardDao.save(board);
 	}
+
+
+	@Override
+	public void deleteBoard(int bid) 
+	{
+		boardDao.delete(bid);
+	}
+
 }

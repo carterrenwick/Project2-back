@@ -9,10 +9,9 @@ import com.revature.dao.BoardDao;
 import com.revature.dao.SwimLaneDao;
 import com.revature.model.Board;
 import com.revature.model.SwimLane;
-import com.revature.serviceInterface.SwimLaneSer;
 
 @Service
-public class SwimLaneService implements SwimLaneSer{
+public class SwimLaneService implements SwimLaneServiceContract{
 
 	@Autowired
 	SwimLaneDao swimLaneDao;
@@ -25,14 +24,32 @@ public class SwimLaneService implements SwimLaneSer{
 
 		SwimLane swimLane = new SwimLane();
 		swimLane.setName(swimLaneName);
-		swimLaneDao.save(swimLane);
+		
 		
 		Board selectedBoard = boardDao.findOne(boardId);
 		List<SwimLane> swimLaneList = selectedBoard.getSwimLanes();
+		int order = 0;
+		
+		for(int i=0; i<swimLaneList.size(); i++) {
+			if(order < swimLaneList.get(i).getOrder()) {
+				order = swimLaneList.get(i).getOrder();
+			}
+		}
+		
+		swimLane.setOrder(order + 1);
+		swimLaneDao.save(swimLane);
 		swimLaneList.add(swimLane);
 		selectedBoard.setSwimLanes(swimLaneList);
 		boardDao.save(selectedBoard);
-		
 	}
+		
+
+	@Override
+	public void deleteSwimLane(int swid) 
+	{
+		swimLaneDao.delete(swid);
+	}
+	
+	
 
 }

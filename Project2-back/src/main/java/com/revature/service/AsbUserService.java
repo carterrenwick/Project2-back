@@ -20,7 +20,17 @@ public class AsbUserService implements AsbUserServiceContract {
 		}
 		return userDao.save(u);
 	}
-	
-	
+  
+	@Override
+	public AsbUser validateUser(String username, String password) 
+	{
+		AsbUser user = userDao.findByUsername(username);
+		System.out.println(user);
+		if (user != null && user.getPassword().equals(password))
+		{
+			return user;
+		}
+		else return null;
+	}
 
 }

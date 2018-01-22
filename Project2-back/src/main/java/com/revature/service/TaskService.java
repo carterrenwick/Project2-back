@@ -23,8 +23,8 @@ public class TaskService implements TaskServiceContract
 	}
 	
 	@Override
-	public Task createTask(int cId, String description) {
-		int tOrder = 1;
+	public void createTask(int cId, String description) {
+		int tOrder = 0;
 		Card c = cardDao.findOne(cId);
 		
 		for(Task t : c.getTasks()) {
@@ -36,8 +36,6 @@ public class TaskService implements TaskServiceContract
 		
 		c.getTasks().add(newTask);
 		cardDao.save(c);
-		
-		return newTask;
 	}
 
 }

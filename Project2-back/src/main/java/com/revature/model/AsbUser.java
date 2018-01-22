@@ -43,7 +43,7 @@ public class AsbUser {
 	
 	//@ManyToMany 
 	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL, mappedBy="users")
-	@JsonBackReference
+	@JsonBackReference(value="boards")
 	private List<Board> boards;
 
 	public AsbUser() {

@@ -40,7 +40,7 @@ public class Board {
 	@JoinTable(name="USER_BOARDS",
 		joinColumns=@JoinColumn(name="B_ID"),
 		inverseJoinColumns= @JoinColumn(name="U_ID"))
-	@JsonManagedReference
+	@JsonManagedReference(value="users")
 	private Set<AsbUser> users;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)

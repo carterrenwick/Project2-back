@@ -1,7 +1,0 @@
-package com.revature.service;
-
-@Service
-public class BoardUserRoleService implements BoardUserRoleServiceContract
-{
-
-}

@@ -1,7 +1,0 @@
-package com.revature.rest;
-
-@RestController
-public class DeleteCtrl 
-{
-
-}

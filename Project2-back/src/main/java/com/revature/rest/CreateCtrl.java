@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Board;
 import com.revature.model.Card;
+import com.revature.model.SwimLane;
 import com.revature.service.BoardServiceContract;
 import com.revature.service.CardServiceContract;
 import com.revature.service.SwimLaneServiceContract;
@@ -36,19 +37,19 @@ public class CreateCtrl {
 	@Autowired
 	SwimLaneServiceContract swimLaneSer;
 	
-	@PostMapping("/createSwimLane")
-	public void makeSwimLane(String swimLaneName, int boardId) {
+	@PostMapping("/createSwimLane/{boardId}")
+	public void makeSwimLane(@RequestBody SwimLane swimLane, @PathVariable int boardId) {
 		
-		swimLaneSer.createSwimLane(swimLaneName, boardId);
+		swimLaneSer.createSwimLane(swimLane, boardId);
 	}
 	
 	@Autowired
 	CardServiceContract cardSer;
-	
-	@PostMapping("/createCard/{id}")
-	public void makeCard(@RequestBody Card card, @PathVariable int id) {
-		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "+card);
-		cardSer.createCard(card, id);
+
+	@PostMapping("/createCard/{swimLaneId}")
+	public void makeCard(@RequestBody Card card, @PathVariable int swimLaneId) {
+		
+		cardSer.createCard(card, swimLaneId);
 	}
 
 

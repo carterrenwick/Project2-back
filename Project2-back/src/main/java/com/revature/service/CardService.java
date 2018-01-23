@@ -21,7 +21,7 @@ public class CardService implements CardServiceContract {
 	
 	@Override
 	public void createCard(Card card, int swimLaneId) {	
-		
+	
 		SwimLane selectedSwimLane = swimLaneDao.findOne(swimLaneId);
 		List<Card> cardList = selectedSwimLane.getCards();
 		int order = 0;

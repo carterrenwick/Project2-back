@@ -1,11 +1,13 @@
 package com.revature.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Board;
+import com.revature.model.Card;
 import com.revature.service.BoardServiceContract;
 import com.revature.service.CardServiceContract;
 import com.revature.service.SwimLaneServiceContract;
@@ -43,10 +45,10 @@ public class CreateCtrl {
 	@Autowired
 	CardServiceContract cardSer;
 	
-	@PostMapping("/createCard")
-	public void makeCard(String cardName, int swimLaneId, int difficulty, String description) {
-		
-		cardSer.createCard(cardName, swimLaneId, difficulty, description);
+	@PostMapping("/createCard/{id}")
+	public void makeCard(@RequestBody Card card, @PathVariable int id) {
+		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "+card);
+		cardSer.createCard(card, id);
 	}
 
 

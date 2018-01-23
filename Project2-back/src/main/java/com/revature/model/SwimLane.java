@@ -3,7 +3,6 @@ package com.revature.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,8 +37,8 @@ public class SwimLane {
 	private int order;
 	
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
-	@JoinColumn(name="SL_ID")	
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="C_ID")	
 	private List<Card> cards;
 
 	public SwimLane() {
@@ -53,14 +52,9 @@ public class SwimLane {
 		
 		this.cards = cards;
 	}
-	
-	public SwimLane(String name, int order) {
-		super();
-		this.name = name;
-		this.order = order;
-		this.cards = new ArrayList<Card>();
-	}
 
+	
+	
 	public int getOrder() {
 		return order;
 	}

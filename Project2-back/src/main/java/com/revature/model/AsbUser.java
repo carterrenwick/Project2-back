@@ -3,7 +3,6 @@ package com.revature.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +41,10 @@ public class AsbUser {
 	private String lastName;
 	
 	//@ManyToMany 
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="users")
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name="USER_BOARDS",
+	joinColumns=@JoinColumn(name="U_ID"),
+	inverseJoinColumns=@JoinColumn(name="B_ID"))
 	private List<Board> boards;
 
 	public AsbUser() {

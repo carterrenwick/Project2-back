@@ -3,7 +3,6 @@ package com.revature.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -39,8 +38,8 @@ public class Card {
 	@Column(name="C_ORDER")
 	private int order;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name="C_ID")	
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="T_ID")	
 	private List<Task> tasks;
 	
 
@@ -55,16 +54,10 @@ public class Card {
 		this.description = description;
 		this.tasks = tasks;
 	}
-	
-	public Card(int difficulty, String title, String description, int order) {
-		super();
-		this.difficulty = difficulty;
-		this.title = title;
-		this.description = description;
-		this.order = order;
-		this.tasks = new ArrayList<Task>();
-	}
 
+	
+	
+	
 	public int getOrder() {
 		return order;
 	}

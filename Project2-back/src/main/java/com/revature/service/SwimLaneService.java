@@ -1,7 +1,5 @@
 package com.revature.service;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;

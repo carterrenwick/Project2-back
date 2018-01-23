@@ -26,19 +26,16 @@ public class Task {
 	@Column(name="T_ORDER")
 	private int order;
 	
-	
-
 	private boolean completed;	//may need to be changed to int to reflect DB schema
-
 
 	public Task() {}
 
-	public Task(int id, String description, boolean completed, Card card) {
+	public Task(int id, String description, int order, boolean completed) {
 		super();
 		this.id = id;
 		this.description = description;
+		this.order = order;
 		this.completed = completed;
-
 	}
 	
 	public Task(String description, int order, boolean completed) {

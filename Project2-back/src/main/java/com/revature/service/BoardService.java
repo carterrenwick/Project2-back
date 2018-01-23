@@ -5,29 +5,35 @@ import org.springframework.stereotype.Service;
 
 import com.revature.dao.AsbUserDao;
 import com.revature.dao.BoardDao;
+
 import com.revature.model.AsbUser;
 import com.revature.model.Board;
 
 @Service
-public class BoardService implements BoardServiceContract 
-{
+public class BoardService implements BoardServiceContract{
+
 	@Autowired
-	BoardDao dao;
+	BoardDao boardDao;
 	
 	@Autowired
 	AsbUserDao aDao;
+	
+	public void createBoard(Board board) {
+		
+		boardDao.save(board);
+	}
 
 	@Override
 	public void deleteBoard(int bid) 
 	{
-		dao.delete(bid);
+		boardDao.delete(bid);
 	}
 
 	
 
 	@Override
 	public void saveBoard(Board b) {
-		dao.save(b);
+		boardDao.save(b);
 		
 	}
 
@@ -35,7 +41,7 @@ public class BoardService implements BoardServiceContract
 	@Override
 	public Board ueserToBoard(int bId, int uId) {
 		AsbUser u = aDao.findOne(uId);
-		Board b = dao.findOne(bId);
+		Board b = boardDao.findOne(bId);
 		b.getUsers().add(u);
 		return b;
 		

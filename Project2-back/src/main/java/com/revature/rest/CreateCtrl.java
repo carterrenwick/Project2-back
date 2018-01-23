@@ -45,7 +45,7 @@ public class CreateCtrl {
 	
 	@Autowired
 	CardServiceContract cardSer;
-	
+
 	@PostMapping("/createCard/{swimLaneId}")
 	public void makeCard(@RequestBody Card card, @PathVariable int swimLaneId) {
 		

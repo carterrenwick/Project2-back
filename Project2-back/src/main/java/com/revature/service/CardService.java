@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.revature.dao.CardDao;
 import com.revature.dao.SwimLaneDao;
-import com.revature.model.Board;
 import com.revature.model.Card;
 import com.revature.model.SwimLane;
 
@@ -21,14 +20,7 @@ public class CardService implements CardServiceContract {
 	SwimLaneDao swimLaneDao;
 	
 	@Override
-	public void createCard(String cardTitle, int swimLaneId, int difficulty, String description) {
-		
-		
-		Card card = new Card();
-		card.setTitle(cardTitle);
-		card.setDifficulty(difficulty);
-		card.setDescription(description);
-	
+	public void createCard(Card card, int swimLaneId) {
 		
 		SwimLane selectedSwimLane = swimLaneDao.findOne(swimLaneId);
 		List<Card> cardList = selectedSwimLane.getCards();

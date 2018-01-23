@@ -27,12 +27,8 @@ public class SwimLaneService implements SwimLaneServiceContract{
 	CardDao cardDao;
 	
 	@Override
-	public void createSwimLane(String swimLaneName, int boardId) {
+	public void createSwimLane(SwimLane swimLane, int boardId) {
 
-		SwimLane swimLane = new SwimLane();
-		swimLane.setName(swimLaneName);
-		
-		
 		Board selectedBoard = boardDao.findOne(boardId);
 		List<SwimLane> swimLaneList = selectedBoard.getSwimLanes();
 		int order = 0;

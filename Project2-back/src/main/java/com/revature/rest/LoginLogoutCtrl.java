@@ -33,5 +33,6 @@ public class LoginLogoutCtrl
 		AsbUser user = userService.validateUser(username, password);
 		return user;
 	}
+}
 	
 	

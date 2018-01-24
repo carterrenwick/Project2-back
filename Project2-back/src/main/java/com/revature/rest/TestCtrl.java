@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.dao.AsbUserDao;
 import com.revature.dao.BoardDao;
+import com.revature.dao.UserBoardRelationDao;
 import com.revature.model.AsbUser;
 import com.revature.model.Board;
-import com.revature.model.Card;
-import com.revature.model.SwimLane;
-import com.revature.model.Task;
+import com.revature.model.BoardUserRole;
+import com.revature.model.UserBoardRelation;
+import com.revature.service.BoardService;
 
 @RestController
 public class TestCtrl {
@@ -25,6 +26,11 @@ public class TestCtrl {
 	@Autowired
 	BoardDao boardDao;
 	
+	@Autowired
+	BoardService bService;
+	
+	@Autowired
+	UserBoardRelationDao ubDao;
 	
 	@PostMapping("/person")
 	public AsbUser makePerson(@RequestBody AsbUser U ) {
@@ -45,16 +51,27 @@ public class TestCtrl {
 		return u;
 	}
 	
-	@GetMapping("/addToBobbert")
-	public Board addToBobbert()
+	@GetMapping("/getBobbert")
+	public AsbUser getReq() {
+		
+		AsbUser u = userDao.findOne(1050);
+		return u;
+	}
+	
+	@GetMapping("/addToBobbert/{bid}")
+	public UserBoardRelation addToBobbert(@PathVariable int bid)
 	{
 		AsbUser u = userDao.findByUsername("Bobbert");
-		u.getBoards().add(new Board("TestBoard"));
-		u.getBoards().get(0).getSwimLanes().add(new SwimLane("TestLane",1));
-		u.getBoards().get(0).getSwimLanes().get(0).getCards().add(new Card(10,"TestCard","This is a test", 1));
-		u.getBoards().get(0).getSwimLanes().get(0).getCards().get(0).getTasks().add(new Task("Test Task",1,false));
-		u = userDao.save(u);
-		return u.getBoards().get(0);
+		List<UserBoardRelation> bobbertsRelations = u.getUserBoardRelations();
+		
+		for (UserBoardRelation ub : bobbertsRelations) {
+			if (ub.getBoard().getId() == bid)
+			{
+				ub.setRole(new BoardUserRole("Admin",true,true,true,true,true));
+				return ubDao.save(ub);
+			}
+		}
+		return null;
 	}
 	
 	@GetMapping("/getAll")
@@ -66,7 +83,25 @@ public class TestCtrl {
 	@GetMapping("/getAllBoards")
 	public List<Board> getAllBoards()
 	{
-		return boardDao.findAll();
+		List<UserBoardRelation> ub = ubDao.findAll();
+		return bService.getAllBoards(ub);
+	}
+	
+	@GetMapping("/getABoards")
+	public List<UserBoardRelation> getABoards()
+	{
+		return ubDao.findAll();
+	}
+	
+	@GetMapping("/getARelation")
+	public UserBoardRelation getARelation()
+	{
+		List<UserBoardRelation> ub = ubDao.findAll();
+		
+		for (UserBoardRelation u : ub)
+			if (u.getUser().getId() == 1050)
+				return u;
+		return null;
 	}
   
 }

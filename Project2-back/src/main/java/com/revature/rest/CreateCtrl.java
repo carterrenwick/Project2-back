@@ -31,7 +31,7 @@ public class CreateCtrl {
 	@PostMapping("/createBoard")
 	public void makeBoard(@RequestBody Board board) {
 		
-		boardSer.createBoard(board);
+//		boardSer.createBoard(board);
 	}
 	
 	@Autowired
@@ -51,10 +51,6 @@ public class CreateCtrl {
 		
 		cardSer.createCard(card, swimLaneId);
 	}
-<<<<<<< HEAD
-}
-=======
 
 
 }
->>>>>>> 745e87a4dd855e32a32ec2d9bf8868d3bb3d7e84

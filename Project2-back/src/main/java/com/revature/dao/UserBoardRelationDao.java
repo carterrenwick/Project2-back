@@ -1,5 +1,7 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.revature.model.AsbUser;
@@ -8,6 +10,5 @@ import com.revature.model.UserBoardRelation;
 
 public interface UserBoardRelationDao extends JpaRepository<UserBoardRelation, Integer> {
 	
-	UserBoardRelation findByUserAndBoard(AsbUser user, Board board);
-	
+	List<UserBoardRelation> findByUser(AsbUser user);
 }

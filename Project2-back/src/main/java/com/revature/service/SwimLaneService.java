@@ -1,13 +1,17 @@
 package com.revature.service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.BoardDao;
+import com.revature.dao.CardDao;
 import com.revature.dao.SwimLaneDao;
 import com.revature.model.Board;
+import com.revature.model.Card;
 import com.revature.model.SwimLane;
 
 @Service
@@ -19,13 +23,12 @@ public class SwimLaneService implements SwimLaneServiceContract{
 	@Autowired
 	BoardDao boardDao;
 	
+	@Autowired
+	CardDao cardDao;
+	
 	@Override
-	public void createSwimLane(String swimLaneName, int boardId) {
+	public void createSwimLane(SwimLane swimLane, int boardId) {
 
-		SwimLane swimLane = new SwimLane();
-		swimLane.setName(swimLaneName);
-		
-		
 		Board selectedBoard = boardDao.findOne(boardId);
 		List<SwimLane> swimLaneList = selectedBoard.getSwimLanes();
 		int order = 0;
@@ -50,6 +53,31 @@ public class SwimLaneService implements SwimLaneServiceContract{
 		swimLaneDao.delete(swid);
 	}
 	
+	@Override
+	public void moveCard(int cid, int sId1, int sId2) {
+		Card c = cardDao.findOne(cid);
+		SwimLane s1 = swimLaneDao.findOne(sId1);
+		SwimLane s2 = swimLaneDao.findOne(sId2);
+		s2.getCards().add(c);
+		c.setOrder(s2.getCards().size());
+		s1.getCards().remove(c);
+		updateOrder(sId1);
+		//updateOrder(sId2);  //Add this method if the user can somehow add a card in the middle of a lane
+		swimLaneDao.save(s1);
+		swimLaneDao.save(s2);
+	}
 	
+	@Override
+	public void updateOrder(int sid) {
+		SwimLane s = swimLaneDao.findOne(sid);
+		Collections.sort(s.getCards(), new Comparator<Card>(){
+		    public int compare(Card c1, Card c2) {
+		        return ((Integer) c1.getOrder()).compareTo((Integer) c2.getOrder());
+		    }
+		});
+		for (int i = 1; i < s.getCards().size(); i++) {
+			s.getCards().get(i).setOrder(i);
+		}
+	}
 
 }

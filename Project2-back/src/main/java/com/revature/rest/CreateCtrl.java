@@ -1,11 +1,14 @@
 package com.revature.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Board;
+import com.revature.model.Card;
+import com.revature.model.SwimLane;
 import com.revature.service.BoardServiceContract;
 import com.revature.service.CardServiceContract;
 import com.revature.service.SwimLaneServiceContract;
@@ -34,18 +37,24 @@ public class CreateCtrl {
 	@Autowired
 	SwimLaneServiceContract swimLaneSer;
 	
-	@PostMapping("/createSwimLane")
-	public void makeSwimLane(String swimLaneName, int boardId) {
+	@PostMapping("/createSwimLane/{boardId}")
+	public void makeSwimLane(@RequestBody SwimLane swimLane, @PathVariable int boardId) {
 		
-		swimLaneSer.createSwimLane(swimLaneName, boardId);
+		swimLaneSer.createSwimLane(swimLane, boardId);
 	}
 	
 	@Autowired
 	CardServiceContract cardSer;
-	
-	@PostMapping("/createCard")
-	public void makeCard(String cardName, int swimLaneId, int difficulty, String description) {
+
+	@PostMapping("/createCard/{swimLaneId}")
+	public void makeCard(@RequestBody Card card, @PathVariable int swimLaneId) {
 		
-		cardSer.createCard(cardName, swimLaneId, difficulty, description);
+		cardSer.createCard(card, swimLaneId);
 	}
+<<<<<<< HEAD
 }
+=======
+
+
+}
+>>>>>>> 745e87a4dd855e32a32ec2d9bf8868d3bb3d7e84

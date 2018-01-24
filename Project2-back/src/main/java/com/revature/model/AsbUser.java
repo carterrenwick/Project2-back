@@ -58,7 +58,7 @@ public class AsbUser implements Serializable
 	public AsbUser() {
 	}
 
-	public AsbUser(int id, String username, String password, String firstName, String lastName, List<Board> boards) {
+	public AsbUser(int id, String username, String password, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.username = username;

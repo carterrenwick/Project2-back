@@ -1,27 +1,63 @@
 package com.revature.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-//Lists could be changed to a Set (no order/no duplicates)
-public class Board {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@Entity
+@Table(name="BOARD")
+@JsonSerialize
+public class Board implements Serializable
+{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8147105293044242411L;
+
+	@Id
+	@Column(name="B_ID")
+	@SequenceGenerator(sequenceName="BOARD_SEQ", name="BOARD_SEQ")
+	@GeneratedValue(generator="BOARD_SEQ",
+	strategy=GenerationType.SEQUENCE)
 	private int id;
+	
+	@Column(name="B_NAME")
 	private String name;
 	
-	//@ManyToMany
-	private List<AsbUser> users;
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL,mappedBy="board")
+	@JsonIgnore
+	private List<UserBoardRelation> userBoardRelations = new ArrayList<>();
 	
-	//@OneToMany
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="B_ID")
 	private List<SwimLane> swimLanes;
 
-	public Board() {}
+	public Board( ) {
+		this.swimLanes =new ArrayList<SwimLane>();
+	}
 
-	public Board(int id, String name, List<AsbUser> users, List<SwimLane> swimLanes) {
+	public Board(String name) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.users = users;
-		this.swimLanes = swimLanes;
+		this.swimLanes =new ArrayList<SwimLane>();
 	}
 
 	public int getId() {
@@ -40,14 +76,6 @@ public class Board {
 		this.name = name;
 	}
 
-	public List<AsbUser> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<AsbUser> users) {
-		this.users = users;
-	}
-
 	public List<SwimLane> getSwimLanes() {
 		return swimLanes;
 	}
@@ -56,8 +84,17 @@ public class Board {
 		this.swimLanes = swimLanes;
 	}
 
+	public List<UserBoardRelation> getUserBoardRelations() {
+		return userBoardRelations;
+	}
+
+	public void setUserBoardRelations(List<UserBoardRelation> userBoardRelations) {
+		this.userBoardRelations = userBoardRelations;
+	}
+
 	@Override
 	public String toString() {
-		return "Board [id=" + id + ", name=" + name + ", users=" + users + ", swimLanes=" + swimLanes + "]";
+		return "Board [id=" + id + ", name=" + name + ", userBoardRelations=" + userBoardRelations + ", swimLanes="
+				+ swimLanes + "]";
 	}
 }

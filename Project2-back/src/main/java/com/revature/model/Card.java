@@ -72,7 +72,6 @@ public class Card {
 	public void setOrder(int order) {
 		this.order = order;
 	}
-
 	
 	public int getId() {
 		return id;

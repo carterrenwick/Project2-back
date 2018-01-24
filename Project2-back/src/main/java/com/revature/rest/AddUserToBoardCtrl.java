@@ -11,13 +11,13 @@ import com.revature.service.BoardService;
 @RestController
 public class AddUserToBoardCtrl {
 	
-	@Autowired
-	BoardService bServ;
+//	@Autowired
+//	BoardService bServ;
 	
 	@GetMapping("/addUB/{bId}&{uId}")
 	public void addUserToBoard(@PathVariable int bId, @PathVariable int uId) {
 	
-		bServ.saveBoard(bServ.ueserToBoard(bId, uId));
+//		bServ.saveBoard(bServ.ueserToBoard(bId, uId)); throwing error
 	}
 	
 	

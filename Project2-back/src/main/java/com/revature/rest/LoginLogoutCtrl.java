@@ -31,7 +31,6 @@ public class LoginLogoutCtrl
 	@PostMapping("/login")
 	public AsbUser login(@RequestBody AsbUser u)
 	{
-		System.out.println(u.getUsername() + " : " + u.getPassword());
 		AsbUser user = userService.validateUser(u.getUsername(), u.getPassword());
 		return user;
 	}

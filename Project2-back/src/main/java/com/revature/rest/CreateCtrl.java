@@ -13,6 +13,7 @@ import com.revature.service.BoardServiceContract;
 import com.revature.service.CardServiceContract;
 import com.revature.service.SwimLaneServiceContract;
 import com.revature.service.TaskServiceContract;
+import com.revature.service.UserBoardsService;
 
 @RestController
 public class CreateCtrl {
@@ -20,18 +21,21 @@ public class CreateCtrl {
 	@Autowired
 	TaskServiceContract taskService;
 	
+	@Autowired
+	BoardServiceContract boardSer;
+	
+	@Autowired
+	UserBoardsService relationService;
+	
 	@PostMapping("/createTask")
 	public void createTask(int cId, String description) {
 		taskService.createTask(cId, description);
 	}
 	
-	@Autowired
-	BoardServiceContract boardSer;
-	
-	@PostMapping("/createBoard")
-	public void makeBoard(@RequestBody Board board) {
-		
-		boardSer.createBoard(board);
+	@PostMapping("/create/board")
+	public Board makeBoard(@RequestBody Board board) 
+	{
+		return relationService.saveBoard(board);
 	}
 	
 	@Autowired

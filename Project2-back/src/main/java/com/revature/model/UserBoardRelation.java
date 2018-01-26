@@ -85,7 +85,6 @@ public class UserBoardRelation implements Serializable
 
 	@Override
 	public String toString() {
-		return "UserBoardRelation [relationId=" + relationId + ", user=" + user + ", board=" + board + ", role=" + role
-				+ "]";
+		return "UserBoardRelation [relationId=" + relationId + "]";
 	}
 }

@@ -28,13 +28,13 @@ public class UserBoardsService implements UserBoardsServiceContract
 	@Autowired
 	BoardDao boardDao;
 
-	public Board saveBoard(Board board) 
+	public Board saveBoard(Board board, int userId) 
 	{
-		httpSession.setAttribute("user", userDao.findOne(1050)); // remove once loggin feature implemented
-		AsbUser user = (AsbUser) httpSession.getAttribute("user");
-		UserBoardRelation rel = new UserBoardRelation(user,board,new BoardUserRole("Admin",true,true,true,true,true));
-//		board.getUserBoardRelations().add(rel);
-//		board = boardDao.save(board);
+		UserBoardRelation rel = new UserBoardRelation(
+				userDao.findOne(userId),
+				board,
+				new BoardUserRole("Admin",true,true,true,true,true)
+				);
 		relationDao.save(rel);
 		return board;
 	}

@@ -25,7 +25,7 @@ public class LoginLogoutCtrl
 	@GetMapping("/logout")
 	public void logout()
 	{
-		httpSession.invalidate();
+		
 	}
 	
 	@PostMapping("/login")

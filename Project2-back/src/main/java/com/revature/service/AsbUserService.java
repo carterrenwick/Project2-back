@@ -28,6 +28,7 @@ public class AsbUserService implements AsbUserServiceContract {
 		System.out.println(user);
 		if (user != null && user.getPassword().equals(password))
 		{
+			user.setPassword(null);
 			return user;
 		}
 		else return null;

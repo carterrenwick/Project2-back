@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Board;
@@ -28,10 +29,10 @@ public class GetCtrl {
 ////		return burService.getBoardUserRole(uId, bId);
 //	}
 	
-	@GetMapping("/get/boards")
-	public List<Board> getBoards()
+	@GetMapping("/get/boards/{userId}")
+	public List<Board> getBoards(@PathVariable int userId)
 	{
-		return boardService.getAllBoardsForLoggedInUser();
+		return boardService.getAllBoardsForLoggedInUser(userId);
 	}
 
 }

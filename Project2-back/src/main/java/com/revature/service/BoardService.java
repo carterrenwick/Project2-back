@@ -3,11 +3,14 @@ package com.revature.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.AsbUserDao;
 import com.revature.dao.BoardDao;
+import com.revature.dao.UserBoardRelationDao;
 import com.revature.model.AsbUser;
 import com.revature.model.Board;
 import com.revature.model.UserBoardRelation;
@@ -20,6 +23,12 @@ public class BoardService implements BoardServiceContract{
 	
 	@Autowired
 	AsbUserDao aDao;
+	
+	@Autowired
+	UserBoardRelationDao relationDao;
+	
+	@Autowired
+	HttpSession httpSession;
 	
 	public void createBoard(Board board) {
 		
@@ -56,6 +65,19 @@ public class BoardService implements BoardServiceContract{
 		List<Board> boards = new ArrayList<>();
 		for (UserBoardRelation ub : userBoardRelation)
 			 boards.add(ub.getBoard());
+		return boards;
+	}
+
+	@Override
+	public List<Board> getAllBoardsForLoggedInUser() 
+	{
+		List<Board> boards = new ArrayList<>();
+		httpSession.setAttribute("user", aDao.findOne(1050)); // Remove once loggin is functional
+		AsbUser currentUser = (AsbUser) httpSession.getAttribute("user");
+		
+		List<UserBoardRelation> relations = relationDao.findByUser(currentUser);
+		for (UserBoardRelation r: relations)
+			boards.add(r.getBoard());
 		return boards;
 	}
 	

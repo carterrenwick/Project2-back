@@ -2,6 +2,7 @@ package com.revature.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,19 +30,26 @@ public class UserBoardRelation implements Serializable
 	strategy=GenerationType.SEQUENCE)
 	private int relationId;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "U_ID")
 	private AsbUser user;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "B_ID")
 	private Board board;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "BUR_ID")
 	private BoardUserRole role;
 	
 	public UserBoardRelation() {}
+
+	public UserBoardRelation(AsbUser user, Board board, BoardUserRole role) {
+		super();
+		this.user = user;
+		this.board = board;
+		this.role = role;
+	}
 
 	public int getRelationId() {
 		return relationId;

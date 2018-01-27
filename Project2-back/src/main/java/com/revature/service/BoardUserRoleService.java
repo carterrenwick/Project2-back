@@ -19,6 +19,22 @@ public class BoardUserRoleService implements BoardUserRoleServiceContract {
 	@Autowired
 	UserBoardRelationDao ubrDao;
 	
+	@Override
+	 	public BoardUserRole getBoardUserRole(int uId, int bId) {
+	 		AsbUser user = new AsbUser();
+	 		Board board = new Board();
+	 		
+	 		user.setId(uId);
+	 		board.setId(bId);
+	 		
+	 		try {
+	 			UserBoardRelation ubr = ubrDao.findByUserAndBoard(user, board);
+	 			int burId = ubr.getRole().getId();
+	 			return burDao.findOne(burId);
+	 		} catch (NullPointerException e) {
+	 			return null;
+	 		}
+	 	}
 	
 
 }

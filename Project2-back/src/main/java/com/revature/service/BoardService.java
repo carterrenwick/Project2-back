@@ -27,9 +27,6 @@ public class BoardService implements BoardServiceContract{
 	@Autowired
 	UserBoardRelationDao relationDao;
 	
-	@Autowired
-	HttpSession httpSession;
-	
 	public void createBoard(Board board) {
 		
 		boardDao.save(board);
@@ -69,13 +66,10 @@ public class BoardService implements BoardServiceContract{
 	}
 
 	@Override
-	public List<Board> getAllBoardsForLoggedInUser() 
+	public List<Board> getAllBoardsForLoggedInUser(int userId) 
 	{
 		List<Board> boards = new ArrayList<>();
-		httpSession.setAttribute("user", aDao.findOne(1050)); // Remove once loggin is functional
-		AsbUser currentUser = (AsbUser) httpSession.getAttribute("user");
-		
-		List<UserBoardRelation> relations = relationDao.findByUser(currentUser);
+		List<UserBoardRelation> relations = relationDao.findByUser(aDao.findOne(userId));
 		for (UserBoardRelation r: relations)
 			boards.add(r.getBoard());
 		return boards;

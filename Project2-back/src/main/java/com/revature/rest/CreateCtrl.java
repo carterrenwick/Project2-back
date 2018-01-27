@@ -1,6 +1,7 @@
 package com.revature.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import com.revature.service.TaskServiceContract;
 import com.revature.service.UserBoardsService;
 
 @RestController
+@CrossOrigin
 public class CreateCtrl {
 	
 	@Autowired
@@ -33,10 +35,10 @@ public class CreateCtrl {
 		return taskService.createTask(t.getDescription(), cId);
 	}
 	
-	@PostMapping("/create/board")
-	public Board makeBoard(@RequestBody Board board) 
+	@PostMapping("/create/board/{userId}")
+	public Board makeBoard(@RequestBody Board board, @PathVariable int userId) 
 	{
-		return relationService.saveBoard(board);
+		return relationService.saveBoard(board, userId);
 	}
 	
 	@Autowired

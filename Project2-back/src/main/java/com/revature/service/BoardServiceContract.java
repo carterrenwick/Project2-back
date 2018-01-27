@@ -20,6 +20,6 @@ public interface BoardServiceContract
 	
 	public List<Board> getAllBoards(List<UserBoardRelation> userBoardRelation);
 
-	public List<Board> getAllBoardsForLoggedInUser();
+	public List<Board> getAllBoardsForLoggedInUser(int userId);
 
 }

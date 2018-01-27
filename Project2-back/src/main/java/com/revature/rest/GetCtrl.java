@@ -34,10 +34,10 @@ public class GetCtrl {
 ////		return burService.getBoardUserRole(uId, bId);
 //	}
 	
-	@GetMapping("/get/boards")
-	public List<Board> getBoards()
+	@GetMapping("/get/boards/{userId}")
+	public List<Board> getBoards(@PathVariable int userId)
 	{
-		return boardService.getAllBoardsForLoggedInUser();
+		return boardService.getAllBoardsForLoggedInUser(userId);
 	}
 	
 	

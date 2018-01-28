@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.service.BoardService;
@@ -46,7 +47,7 @@ public class DeleteCtrl
 		cardService.deleteCard(cid);
 	}
 	
-	@GetMapping("/delete/task/{tid}")
+	@PostMapping("/delete/task/{tid}")
 	public void deleteTask(@PathVariable int tid)
 	{
 		taskService.deleteTask(tid);

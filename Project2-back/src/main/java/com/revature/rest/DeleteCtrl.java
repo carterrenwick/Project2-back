@@ -2,6 +2,7 @@ package com.revature.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,28 +33,27 @@ public class DeleteCtrl
 	TaskService taskService;
 	
 	
-	@PostMapping("/delete/board/")
+	@PostMapping("/delete/board")
 	public void deleteBoard(@RequestBody Board b)
 	{
 		boardService.deleteBoard(b);
 	}
 	
-	@PostMapping("/delete/swimlane/")
-	public void deleteSwimLane(@RequestBody SwimLane s)
+	@PostMapping("/delete/swimlane/{boardId}")
+	public void deleteSwimLane(@RequestBody SwimLane s,@PathVariable int boardId)
 	{
-		swimLaneService.deleteSwimLane(s);
+		swimLaneService.deleteSwimLane(s, boardId);
 	}
 	
-	@PostMapping("/delete/card")
-	public void deleteCard(@RequestBody Card c)
+	@PostMapping("/delete/card/{slid}")
+	public void deleteCard(@RequestBody Card c, @PathVariable int slid)
 	{
-		System.out.println("delete this card" + c);
-		cardService.deleteCard(c);
+		cardService.deleteCard(c, slid);
 	}
 	
-	@PostMapping("/delete/task/")
-	public void deleteTask(@RequestBody Task t)
+	@PostMapping("/delete/task/{cardId}")
+	public void deleteTask(@RequestBody Task t, @PathVariable int cardId)
 	{
-		taskService.deleteTask(t);
+		taskService.deleteTask(t, cardId);
 	}
 }

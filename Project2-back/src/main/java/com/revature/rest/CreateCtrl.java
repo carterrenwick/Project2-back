@@ -30,6 +30,12 @@ public class CreateCtrl {
 	@Autowired
 	UserBoardsService relationService;
 	
+	@Autowired
+	SwimLaneServiceContract swimLaneSer;
+	
+	@Autowired
+	CardServiceContract cardSer;
+	
 	@PostMapping("/createTask/{cId}")
 	public Task createTask(@RequestBody Task t, @PathVariable int cId) {
 		return taskService.createTask(t.getDescription(), cId);
@@ -41,22 +47,16 @@ public class CreateCtrl {
 		return relationService.saveBoard(board, userId);
 	}
 	
-	@Autowired
-	SwimLaneServiceContract swimLaneSer;
-	
 	@PostMapping("/createSwimLane/{boardId}")
-	public void makeSwimLane(@RequestBody SwimLane swimLane, @PathVariable int boardId) {
+	public SwimLane makeSwimLane(@RequestBody SwimLane swimLane, @PathVariable int boardId) {
 		
-		swimLaneSer.createSwimLane(swimLane, boardId);
+		return swimLaneSer.createSwimLane(swimLane, boardId);
 	}
-	
-	@Autowired
-	CardServiceContract cardSer;
 
 	@PostMapping("/createCard/{swimLaneId}")
-	public void makeCard(@RequestBody Card card, @PathVariable int swimLaneId) {
+	public Card makeCard(@RequestBody Card card, @PathVariable int swimLaneId) {
 		
-		cardSer.createCard(card, swimLaneId);
+		return cardSer.createCard(card, swimLaneId);
 	}
 
 

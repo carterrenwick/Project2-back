@@ -15,4 +15,6 @@ public interface UserBoardRelationDao extends JpaRepository<UserBoardRelation, I
 	UserBoardRelation findByUserAndBoard(AsbUser user, Board board);
 	
 	boolean existsByUserAndBoard(AsbUser user, Board board);
+	
+	List<UserBoardRelation> findByBoard(Board board);
 }

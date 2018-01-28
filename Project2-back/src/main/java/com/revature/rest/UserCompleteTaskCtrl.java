@@ -27,5 +27,4 @@ public class UserCompleteTaskCtrl {
 	return	new ResponseEntity<Boolean>(HttpStatus.ACCEPTED);
 	}
 	
-	
 }

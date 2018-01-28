@@ -44,9 +44,10 @@ public class DeleteCtrl
 		swimLaneService.deleteSwimLane(s);
 	}
 	
-	@PostMapping("/delete/card/")
+	@PostMapping("/delete/card")
 	public void deleteCard(@RequestBody Card c)
 	{
+		System.out.println("delete this card" + c);
 		cardService.deleteCard(c);
 	}
 	

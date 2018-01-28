@@ -41,7 +41,7 @@ public class CardService implements CardServiceContract {
 
 	public void deleteCard(Card c) 
 	{
-		cardDao.delete(c);
+		cardDao.delete(c.getId());
 	}
 
 }

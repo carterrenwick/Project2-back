@@ -50,7 +50,6 @@ public class SwimLane {
 		super();
 		this.id = id;
 		this.name = name;
-		
 		this.cards = cards;
 	}
 	

@@ -26,7 +26,7 @@ public class Task {
 	@Column(name="T_ORDER")
 	private int order;
 	
-	private boolean completed;	//may need to be changed to int to reflect DB schema
+	private boolean completed;
 
 	public Task() {}
 

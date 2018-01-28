@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.revature.dao.CardDao;
 import com.revature.dao.TaskDao;
 import com.revature.model.Card;
+import com.revature.model.SwimLane;
 import com.revature.model.Task;
 
 @Service
@@ -17,14 +18,33 @@ import com.revature.model.Task;
 public class TaskService implements TaskServiceContract
 {
 	@Autowired
-	TaskDao dao;
+	TaskDao taskDao;
 	
 	@Autowired
 	CardDao cardDao;
 
-	public void deleteTask(Task t) 
+	public void deleteTask(Task task, int cardId) 
 	{
-		dao.delete(t);
+		taskDao.delete(task);
+		Card c = cardDao.findOne(cardId);
+		List<Task> tList = c.getTasks();
+		boolean correctOrder = true;
+		CheckOrder: for (int i = 1; i <= tList.size()+1; i++)
+		{
+			for (Task t : tList)
+			{
+				if (t.getOrder()==i) 
+				{
+					if (!correctOrder) 
+					{
+						t.setOrder(i-1);
+						taskDao.save(t);
+					}
+					continue CheckOrder;
+				}
+				correctOrder = false;
+			}
+		}
 	}
 	
 	@Override
@@ -35,29 +55,19 @@ public class TaskService implements TaskServiceContract
 		for(Task t : c.getTasks()) {
 			if(t.getOrder() > tOrder)
 				tOrder = t.getOrder();
-			
-			
-			
 		}
 		
 		Task newTask = new Task(description, tOrder+1, false);
-		
+		newTask = taskDao.save(newTask);
 		c.getTasks().add(newTask);
 		Card c1 = cardDao.save(c);
 		
-		List<Task> tasks = c1.getTasks();
-		Task temp = new Task(0,"",0,false);
-		for(Task tsk: tasks) {
-			if(tsk.getId() > temp.getId()){
-				temp = tsk;
-			}
-		}
-		return temp;
+		return newTask;
 	}
 
 	@Override
 	public boolean checkedTask(int tId) {
-		Task t = dao.findOne(tId);
+		Task t = taskDao.findOne(tId);
 		if(t.getCompleted() == true) {
 			return true;	
 		}else {
@@ -69,7 +79,7 @@ public class TaskService implements TaskServiceContract
 	@Override
 	public void saveTask(Task t) {
 		
-	dao.save(t);
+	taskDao.save(t);
 		
 	}
 
@@ -78,7 +88,7 @@ public class TaskService implements TaskServiceContract
 		Card c = cardDao.findOne(cId);
 		
 	
-		List<Task> task = (List<Task>) dao.findAll();
+		List<Task> task = (List<Task>) taskDao.findAll();
 		
 		for (Task t: task) {
 			for(Task ct: c.getTasks()) {

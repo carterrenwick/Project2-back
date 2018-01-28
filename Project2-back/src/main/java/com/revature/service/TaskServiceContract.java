@@ -6,7 +6,7 @@ import com.revature.model.Task;
 
 public interface TaskServiceContract 
 {
-	void deleteTask(Task t);
+	void deleteTask(Task t, int cardId);
 
 	boolean checkedTask(int tId);
 	

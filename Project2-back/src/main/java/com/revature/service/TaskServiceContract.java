@@ -8,7 +8,7 @@ public interface TaskServiceContract
 {
 	void deleteTask(Task t, int cardId);
 
-	boolean checkedTask(int tId);
+	boolean checkedTask(Task t);
 	
 	void saveTask(Task t);
 	

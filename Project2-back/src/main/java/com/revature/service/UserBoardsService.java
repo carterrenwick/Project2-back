@@ -35,8 +35,8 @@ public class UserBoardsService implements UserBoardsServiceContract
 	@Override
 	public Board saveBoard(Board board, int userId) 
 	{
-		BoardUserRole admin = burDao.save(new BoardUserRole("ADMIN",true,true,true,true,true));
-//		admin.setId(50);
+		BoardUserRole admin = new BoardUserRole();
+		admin.setId(3050);
 		
 		
 		board = boardDao.save(board);

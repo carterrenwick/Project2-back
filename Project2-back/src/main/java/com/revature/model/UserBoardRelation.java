@@ -34,7 +34,7 @@ public class UserBoardRelation implements Serializable
 	@JoinColumn(name = "U_ID")
 	private AsbUser user;
 	
-	@ManyToOne(cascade=CascadeType.ALL, optional=false)
+	@ManyToOne(cascade=CascadeType.MERGE, optional=false)
 	@JoinColumn(name = "B_ID")
 	private Board board;
 	

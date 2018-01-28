@@ -97,5 +97,4 @@ public class SwimLane {
 	public String toString() {
 		return "SwimLane [id=" + id + ", name=" + name + ", order=" + order + ", cards=" + cards + "]";
 	}
-
 }

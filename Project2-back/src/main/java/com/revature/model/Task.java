@@ -81,7 +81,4 @@ public class Task {
 	public String toString() {
 		return "Task [id=" + id + ", description=" + description + ", completed=" + completed + "]";
 	}
-
-
-
 }

@@ -73,7 +73,6 @@ public class TaskService implements TaskServiceContract
 		}else {
 			return false;
 		}
-		
 	}
 	
 	@Override

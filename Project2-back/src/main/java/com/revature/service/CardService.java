@@ -42,6 +42,7 @@ public class CardService implements CardServiceContract {
 	public void deleteCard(int cid) 
 	{
 		cardDao.delete(cid);
+		System.out.println("Delete ctrl received card id:" + cid);
 	}
 
 }

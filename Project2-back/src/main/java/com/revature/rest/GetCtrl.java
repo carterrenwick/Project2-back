@@ -14,6 +14,7 @@ import com.revature.model.BoardUserRole;
 import com.revature.service.AsbUserService;
 import com.revature.service.BoardService;
 import com.revature.service.BoardUserRoleServiceContract;
+import com.revature.service.UserBoardsServiceContract;
 
 @CrossOrigin
 @RestController
@@ -27,6 +28,9 @@ public class GetCtrl {
 	
 	@Autowired
 	AsbUserService userService;
+	
+	@Autowired
+	UserBoardsServiceContract ubService;
 	
 	//Can be optimized by sending AsbUser & Board objects
 	@GetMapping("/get/BoardUserRole/{uId}&{bId}")
@@ -44,6 +48,11 @@ public class GetCtrl {
 	@GetMapping("/get/user/{username}")
 	public AsbUser getUser(@PathVariable String username) {
 		return userService.getUser(username);
+	}
+	
+	@GetMapping("/get/users/{boardId}")
+	public List<AsbUser> getMembersOfBoard(@PathVariable int boardId) {
+		return ubService.getMembersOfBoard(boardId);
 	}
 
 }

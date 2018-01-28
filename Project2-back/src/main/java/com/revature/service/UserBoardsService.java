@@ -1,7 +1,9 @@
 package com.revature.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.NonUniqueResultException;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +22,6 @@ public class UserBoardsService implements UserBoardsServiceContract
 {
 	@Autowired
 	UserBoardRelationDao relationDao;
-	
-	@Autowired
-	HttpSession httpSession;
 	
 	@Autowired
 	AsbUserDao userDao;
@@ -77,6 +76,15 @@ public class UserBoardsService implements UserBoardsServiceContract
 		} catch (NonUniqueResultException e) {
 			return null;
 		}
+	}
+
+	@Override
+	public List<AsbUser> getMembersOfBoard(int boardId) {
+		List<AsbUser> boardMembers = new ArrayList<>();
+		List<UserBoardRelation> relations = relationDao.findByBoard(boardDao.findOne(boardId));
+		for (UserBoardRelation r: relations)
+			boardMembers.add(r.getUser());
+		return boardMembers;
 	}
 
 }

@@ -3,6 +3,7 @@ package com.revature.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +13,7 @@ import com.revature.model.BoardUserRole;
 import com.revature.model.UserBoardRelation;
 import com.revature.service.UserBoardsServiceContract;
 
-
+@CrossOrigin
 @RestController
 public class AddUserToBoardCtrl {
 	

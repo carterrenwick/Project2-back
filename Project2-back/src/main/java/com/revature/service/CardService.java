@@ -39,9 +39,9 @@ public class CardService implements CardServiceContract {
 		swimLaneDao.save(selectedSwimLane);
 	}
 
-	public void deleteCard(int cid) 
+	public void deleteCard(Card c) 
 	{
-		cardDao.delete(cid);
+		cardDao.delete(c);
 	}
 
 }

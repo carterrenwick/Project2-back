@@ -30,15 +30,15 @@ public class UserBoardRelation implements Serializable
 	strategy=GenerationType.SEQUENCE)
 	private int relationId;
 	
-	@ManyToOne(cascade=CascadeType.MERGE)
+	@ManyToOne(cascade= CascadeType.MERGE, optional=false)
 	@JoinColumn(name = "U_ID")
 	private AsbUser user;
 	
-	@ManyToOne(cascade=CascadeType.MERGE)
+	@ManyToOne(cascade=CascadeType.MERGE, optional=false)
 	@JoinColumn(name = "B_ID")
 	private Board board;
 	
-	@ManyToOne(cascade=CascadeType.MERGE)
+	@ManyToOne(cascade=CascadeType.MERGE, optional=false)
 	@JoinColumn(name = "BUR_ID")
 	private BoardUserRole role;
 	

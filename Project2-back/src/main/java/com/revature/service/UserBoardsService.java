@@ -35,11 +35,11 @@ public class UserBoardsService implements UserBoardsServiceContract
 	@Override
 	public Board saveBoard(Board board, int userId) 
 	{
-		// Role id for admin = 50
 		BoardUserRole admin = new BoardUserRole();
-		admin.setId(50);
+		admin.setId(3050);
 		
-		boardDao.save(board);
+		
+		board = boardDao.save(board);
 		
 		UserBoardRelation rel = new UserBoardRelation(
 				userDao.findOne(userId),

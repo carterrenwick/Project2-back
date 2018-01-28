@@ -22,9 +22,9 @@ public class TaskService implements TaskServiceContract
 	@Autowired
 	CardDao cardDao;
 
-	public void deleteTask(int tid) 
+	public void deleteTask(Task t) 
 	{
-		dao.delete(tid);
+		dao.delete(t);
 	}
 	
 	@Override

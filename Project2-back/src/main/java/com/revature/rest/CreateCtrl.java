@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.model.Board;
 import com.revature.model.Card;
 import com.revature.model.SwimLane;
+import com.revature.model.Task;
 import com.revature.service.BoardServiceContract;
 import com.revature.service.CardServiceContract;
 import com.revature.service.SwimLaneServiceContract;
@@ -29,9 +30,9 @@ public class CreateCtrl {
 	@Autowired
 	UserBoardsService relationService;
 	
-	@PostMapping("/createTask")
-	public void createTask(int cId, String description) {
-		taskService.createTask(cId, description);
+	@PostMapping("/createTask/{cId}")
+	public Task createTask(@RequestBody Task t, @PathVariable int cId) {
+		return taskService.createTask(t.getDescription(), cId);
 	}
 	
 	@PostMapping("/create/board/{userId}")

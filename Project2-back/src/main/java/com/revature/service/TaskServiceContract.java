@@ -1,15 +1,19 @@
 package com.revature.service;
 
+import java.util.List;
+
 import com.revature.model.Task;
 
 public interface TaskServiceContract 
 {
-	void deleteTask(int tid);
+	void deleteTask(Task t);
 
 	boolean checkedTask(int tId);
 	
 	void saveTask(Task t);
 	
-	void createTask(int cId, String description);
+	Task createTask(String description,int cId);
+	
+	public List<Task> getAllTask(int cId);
   
 }

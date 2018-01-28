@@ -34,4 +34,13 @@ public class AsbUserService implements AsbUserServiceContract {
 		else return null;
 	}
 
+	@Override
+	public AsbUser getUser(String username) {
+		AsbUser user = userDao.findByUsername(username);
+		if(user != null)
+			user.setPassword(null);
+		return user;
+	}
+	
+
 }

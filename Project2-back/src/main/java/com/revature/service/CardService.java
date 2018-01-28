@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.dao.CardDao;
 import com.revature.dao.SwimLaneDao;
+import com.revature.model.Board;
 import com.revature.model.Card;
 import com.revature.model.SwimLane;
 
@@ -20,7 +21,7 @@ public class CardService implements CardServiceContract {
 	SwimLaneDao swimLaneDao;
 	
 	@Override
-	public void createCard(Card card, int swimLaneId) {	
+	public Card createCard(Card card, int swimLaneId) {	
 	
 		SwimLane selectedSwimLane = swimLaneDao.findOne(swimLaneId);
 		List<Card> cardList = selectedSwimLane.getCards();
@@ -33,15 +34,36 @@ public class CardService implements CardServiceContract {
 		}
 		
 		card.setOrder(order + 1);
-		cardDao.save(card);
+		card = cardDao.save(card);
 		cardList.add(card);
 		selectedSwimLane.setCards(cardList);
 		swimLaneDao.save(selectedSwimLane);
+		
+		return card;
 	}
 
-	public void deleteCard(Card c) 
+	public void deleteCard(Card card, int slid) 
 	{
-		cardDao.delete(c.getId());
+		cardDao.delete(card);
+		SwimLane sl = swimLaneDao.findOne(slid);
+		List<Card> cList = sl.getCards();
+		boolean correctOrder = true;
+		CheckOrder: for (int i = 1; i <= cList.size()+1; i++)
+		{
+			for (Card c : cList)
+			{
+				if (c.getOrder()==i) 
+				{
+					if (!correctOrder) 
+					{
+						c.setOrder(i-1);
+						cardDao.save(c);
+					}
+					continue CheckOrder;
+				}
+				correctOrder = false;
+			}
+		}
 	}
 
 }

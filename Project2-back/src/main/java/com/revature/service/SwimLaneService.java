@@ -27,7 +27,7 @@ public class SwimLaneService implements SwimLaneServiceContract{
 	CardDao cardDao;
 	
 	@Override
-	public void createSwimLane(SwimLane swimLane, int boardId) {
+	public SwimLane createSwimLane(SwimLane swimLane, int boardId) {
 
 		Board selectedBoard = boardDao.findOne(boardId);
 		List<SwimLane> swimLaneList = selectedBoard.getSwimLanes();
@@ -40,17 +40,38 @@ public class SwimLaneService implements SwimLaneServiceContract{
 		}
 		
 		swimLane.setOrder(order + 1);
-		swimLaneDao.save(swimLane);
+		swimLane = swimLaneDao.save(swimLane);
 		swimLaneList.add(swimLane);
 		selectedBoard.setSwimLanes(swimLaneList);
 		boardDao.save(selectedBoard);
+		
+		return swimLane;
 	}
 		
 
 	@Override
-	public void deleteSwimLane(SwimLane s) 
+	public void deleteSwimLane(SwimLane s, int boardId) 
 	{
 		swimLaneDao.delete(s);
+		Board b = boardDao.findOne(boardId);
+		List<SwimLane> slList = b.getSwimLanes();
+		boolean correctOrder = true;
+		CheckOrder: for (int i = 1; i <= slList.size()+1; i++)
+		{
+			for (SwimLane sl : slList)
+			{
+				if (sl.getOrder()==i) 
+				{
+					if (!correctOrder) 
+					{
+						sl.setOrder(i-1);
+						swimLaneDao.save(sl);
+					}
+					continue CheckOrder;
+				}
+				correctOrder = false;
+			}
+		}
 	}
 	
 	@Override

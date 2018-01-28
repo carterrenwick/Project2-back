@@ -10,7 +10,7 @@ import com.revature.model.UserBoardRelation;
 @Service
 public interface BoardServiceContract 
 {
-	void deleteBoard(int bid);
+	void deleteBoard(Board b);
 
 	Board ueserToBoard(int bId, int uId);
 

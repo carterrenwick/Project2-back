@@ -48,9 +48,9 @@ public class SwimLaneService implements SwimLaneServiceContract{
 		
 
 	@Override
-	public void deleteSwimLane(int swid) 
+	public void deleteSwimLane(SwimLane s) 
 	{
-		swimLaneDao.delete(swid);
+		swimLaneDao.delete(s);
 	}
 	
 	@Override

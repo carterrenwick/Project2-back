@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +22,37 @@ public class TaskService implements TaskServiceContract
 	@Autowired
 	CardDao cardDao;
 
-	public void deleteTask(int tid) 
+	public void deleteTask(Task t) 
 	{
-		dao.delete(tid);
+		dao.delete(t);
 	}
 	
 	@Override
-	public void createTask(int cId, String description) {
+	public Task createTask(String description,int cId) {
 		int tOrder = 0;
 		Card c = cardDao.findOne(cId);
 		
 		for(Task t : c.getTasks()) {
 			if(t.getOrder() > tOrder)
 				tOrder = t.getOrder();
+			
+			
+			
 		}
 		
 		Task newTask = new Task(description, tOrder+1, false);
 		
 		c.getTasks().add(newTask);
-		cardDao.save(c);
+		Card c1 = cardDao.save(c);
+		
+		List<Task> tasks = c1.getTasks();
+		Task temp = new Task(0,"",0,false);
+		for(Task tsk: tasks) {
+			if(tsk.getId() > temp.getId()){
+				temp = tsk;
+			}
+		}
+		return temp;
 	}
 
 	@Override
@@ -59,5 +73,24 @@ public class TaskService implements TaskServiceContract
 		
 	}
 
+	@Override
+	public List<Task> getAllTask(int cId) {
+		Card c = cardDao.findOne(cId);
+		
 	
+		List<Task> task = (List<Task>) dao.findAll();
+		
+		for (Task t: task) {
+			for(Task ct: c.getTasks()) {
+				
+				if(t.getId() == ct.getId()) {
+					
+					return c.getTasks();
+				}
+				
+			}
+		}
+		
+		return null;
+	}
 }

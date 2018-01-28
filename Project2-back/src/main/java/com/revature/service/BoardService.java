@@ -3,8 +3,6 @@ package com.revature.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,9 +31,9 @@ public class BoardService implements BoardServiceContract{
 	}
 
 	@Override
-	public void deleteBoard(int bid) 
+	public void deleteBoard(Board b) 
 	{
-		boardDao.delete(bid);
+		boardDao.delete(b);
 	}
 
 	

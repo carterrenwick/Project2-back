@@ -16,47 +16,55 @@ public class CardService implements CardServiceContract {
 
 	@Autowired
 	CardDao cardDao;
-	
+
 	@Autowired
 	SwimLaneDao swimLaneDao;
-	
+
 	@Override
-	public Card createCard(Card card, int swimLaneId) {	
-	
+	public Card createCard(Card card, int swimLaneId) {
+		Card card2 = new Card();
+		if (card.getId() != 0) 
+		{
+			card2 = cardDao.getOne(card.getId());
+			
+			card2.setDescription(card.getDescription());
+			card2.setDifficulty(card.getDifficulty());
+			card2.setOrder(card.getOrder());
+			card2.setTitle(card.getTitle());
+			
+			cardDao.save(card2);
+		}
+		else
+		{
 		SwimLane selectedSwimLane = swimLaneDao.findOne(swimLaneId);
 		List<Card> cardList = selectedSwimLane.getCards();
 		int order = 0;
-		
-		for(int i=0; i<cardList.size(); i++) {
-			if(order < cardList.get(i).getOrder()) {
+
+		for (int i = 0; i < cardList.size(); i++) {
+			if (order < cardList.get(i).getOrder()) {
 				order = cardList.get(i).getOrder();
 			}
 		}
-		
+
 		card.setOrder(order + 1);
 		card = cardDao.save(card);
-		cardList.add(card);
-		selectedSwimLane.setCards(cardList);
+		selectedSwimLane.getCards().add(card);
 		swimLaneDao.save(selectedSwimLane);
-		
+		}
+
 		return card;
 	}
 
-	public void deleteCard(Card card, int slid) 
-	{
+	public void deleteCard(Card card, int slid) {
 		cardDao.delete(card);
 		SwimLane sl = swimLaneDao.findOne(slid);
 		List<Card> cList = sl.getCards();
 		boolean correctOrder = true;
-		CheckOrder: for (int i = 1; i <= cList.size()+1; i++)
-		{
-			for (Card c : cList)
-			{
-				if (c.getOrder()==i) 
-				{
-					if (!correctOrder) 
-					{
-						c.setOrder(i-1);
+		CheckOrder: for (int i = 1; i <= cList.size() + 1; i++) {
+			for (Card c : cList) {
+				if (c.getOrder() == i) {
+					if (!correctOrder) {
+						c.setOrder(i - 1);
 						cardDao.save(c);
 					}
 					continue CheckOrder;

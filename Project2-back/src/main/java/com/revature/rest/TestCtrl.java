@@ -58,22 +58,6 @@ public class TestCtrl {
 		return u;
 	}
 	
-	@GetMapping("/addToBobbert/{bid}")
-	public UserBoardRelation addToBobbert(@PathVariable int bid)
-	{
-		AsbUser u = userDao.findByUsername("Bobbert");
-		List<UserBoardRelation> bobbertsRelations = u.getUserBoardRelations();
-		
-		for (UserBoardRelation ub : bobbertsRelations) {
-			if (ub.getBoard().getId() == bid)
-			{
-				ub.setRole(new BoardUserRole("Admin",true,true,true,true,true));
-				return ubDao.save(ub);
-			}
-		}
-		return null;
-	}
-	
 	@GetMapping("/getAll")
 	public List<AsbUser> getAll()
 	{

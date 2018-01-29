@@ -38,19 +38,19 @@ public class Interceptor {
 		s.updateOrder((int) jp.getArgs()[0]);
 	}
 
-//	@After("execution(* com.revature.service..*(..))")
-//	public void log(JoinPoint jp){
-//		// for (int i = 0; i < jp.getArgs().length; i++) {
-//		// System.out.println(jp.getArgs()[i].getClass() + " : " + jp.getArgs()[i]);
-//		// }
-//		String output = "";
-//		output += jp.getSignature().getName();
-//		for (int i = 0; i < jp.getArgs().length; i++) {
-//			output += " : " + jp.getArgs()[i];
-//		}
-//		output += " : " + jp.getSignature().getDeclaringTypeName();
-//		//System.out.println(output);
-//		log.debug("output");
-//	}
+	@After("execution(* com.revature.service..*(..))")
+	public void log(JoinPoint jp){
+		// for (int i = 0; i < jp.getArgs().length; i++) {
+		// System.out.println(jp.getArgs()[i].getClass() + " : " + jp.getArgs()[i]);
+		// }
+		String output = "";
+		output += jp.getSignature().getName();
+		for (int i = 0; i < jp.getArgs().length; i++) {
+			output += " : " + jp.getArgs()[i];
+		}
+		output += " : " + jp.getSignature().getDeclaringTypeName();
+		//System.out.println(output);
+		log.info(output);
+	}
 }
 

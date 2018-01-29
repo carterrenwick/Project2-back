@@ -66,13 +66,10 @@ public class TaskService implements TaskServiceContract
 	}
 
 	@Override
-	public boolean checkedTask(int tId) {
-		Task t = taskDao.findOne(tId);
-		if(t.getCompleted() == true) {
-			return true;	
-		}else {
-			return false;
-		}
+	public void checkedTask(Task t) 
+	{
+		t = taskDao.findOne(t.getId());
+		t.setCompleted(!t.getCompleted());
 	}
 	
 	@Override

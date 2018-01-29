@@ -48,17 +48,29 @@ public class BoardUserRole implements Serializable
 	@Column(name="CREATE_C")
 	private boolean createCard;
 	
-	@Column(name="MOVE_C")
-	private boolean moveCard;
-	
 	@Column(name="EDIT_C")
 	private boolean editCard;
+	
+	@Column(name="DELETE_C")
+	private boolean deleteCard;
 	
 	@Column(name="INVITE_U")
 	private boolean inviteUser;
 	
+	@Column(name="REMOVE_U")
+	private boolean removeUser;
+	
 	@Column(name="CREATE_S")
 	private boolean createSwimLane;
+	
+	@Column(name="DELETE_S")
+	private boolean deleteSwimLane;
+	
+	@Column(name="CREATE_T")
+	private boolean createTask;
+	
+	@Column(name="DELETE_T")
+	private boolean deleteTask;
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="BUR_ID")
@@ -67,27 +79,37 @@ public class BoardUserRole implements Serializable
 	
 	public BoardUserRole() {}
 
-	public BoardUserRole(int id, String roleName, boolean createCard, boolean moveCard, boolean editCard,
-			boolean inviteUser, boolean createSwimLane) {
+	public BoardUserRole(int id, String roleName, boolean createCard, boolean editCard, boolean deleteCard,
+			boolean inviteUser, boolean removeUser, boolean createSwimLane, boolean deleteSwimLane, boolean createTask,
+			boolean deleteTask) {
 		super();
 		this.id = id;
 		this.roleName = roleName;
 		this.createCard = createCard;
-		this.moveCard = moveCard;
 		this.editCard = editCard;
+		this.deleteCard = deleteCard;
 		this.inviteUser = inviteUser;
+		this.removeUser = removeUser;
 		this.createSwimLane = createSwimLane;
+		this.deleteSwimLane = deleteSwimLane;
+		this.createTask = createTask;
+		this.deleteTask = deleteTask;
 	}
 
-	public BoardUserRole(String roleName, boolean createCard, boolean moveCard, boolean editCard, boolean inviteUser,
-			boolean createSwimLane) {
+	public BoardUserRole(String roleName, boolean createCard, boolean editCard, boolean deleteCard, boolean inviteUser,
+			boolean removeUser, boolean createSwimLane, boolean deleteSwimLane, boolean createTask,
+			boolean deleteTask) {
 		super();
 		this.roleName = roleName;
 		this.createCard = createCard;
-		this.moveCard = moveCard;
 		this.editCard = editCard;
+		this.deleteCard = deleteCard;
 		this.inviteUser = inviteUser;
+		this.removeUser = removeUser;
 		this.createSwimLane = createSwimLane;
+		this.deleteSwimLane = deleteSwimLane;
+		this.createTask = createTask;
+		this.deleteTask = deleteTask;
 	}
 
 	public int getId() {
@@ -114,20 +136,20 @@ public class BoardUserRole implements Serializable
 		this.createCard = createCard;
 	}
 
-	public boolean isMoveCard() {
-		return moveCard;
-	}
-
-	public void setMoveCard(boolean moveCard) {
-		this.moveCard = moveCard;
-	}
-
 	public boolean isEditCard() {
 		return editCard;
 	}
 
 	public void setEditCard(boolean editCard) {
 		this.editCard = editCard;
+	}
+
+	public boolean isDeleteCard() {
+		return deleteCard;
+	}
+
+	public void setDeleteCard(boolean deleteCard) {
+		this.deleteCard = deleteCard;
 	}
 
 	public boolean isInviteUser() {
@@ -138,12 +160,44 @@ public class BoardUserRole implements Serializable
 		this.inviteUser = inviteUser;
 	}
 
+	public boolean isRemoveUser() {
+		return removeUser;
+	}
+
+	public void setRemoveUser(boolean removeUser) {
+		this.removeUser = removeUser;
+	}
+
 	public boolean isCreateSwimLane() {
 		return createSwimLane;
 	}
 
 	public void setCreateSwimLane(boolean createSwimLane) {
 		this.createSwimLane = createSwimLane;
+	}
+
+	public boolean isDeleteSwimLane() {
+		return deleteSwimLane;
+	}
+
+	public void setDeleteSwimLane(boolean deleteSwimLane) {
+		this.deleteSwimLane = deleteSwimLane;
+	}
+
+	public boolean isCreateTask() {
+		return createTask;
+	}
+
+	public void setCreateTask(boolean createTask) {
+		this.createTask = createTask;
+	}
+
+	public boolean isDeleteTask() {
+		return deleteTask;
+	}
+
+	public void setDeleteTask(boolean deleteTask) {
+		this.deleteTask = deleteTask;
 	}
 
 	public Set<UserBoardRelation> getUserBoardRelations() {
@@ -156,8 +210,9 @@ public class BoardUserRole implements Serializable
 
 	@Override
 	public String toString() {
-		return "BoardUserRole [id=" + id + ", roleName=" + roleName + ", createCard=" + createCard + ", moveCard="
-				+ moveCard + ", editCard=" + editCard + ", inviteUser=" + inviteUser + ", createSwimLane="
-				+ createSwimLane + ", userBoardRelations=" + userBoardRelations + "]";
+		return "BoardUserRole [id=" + id + ", roleName=" + roleName + ", createCard=" + createCard + ", editCard="
+				+ editCard + ", deleteCard=" + deleteCard + ", inviteUser=" + inviteUser + ", removeUser=" + removeUser
+				+ ", createSwimLane=" + createSwimLane + ", deleteSwimLane=" + deleteSwimLane + ", createTask="
+				+ createTask + ", deleteTask=" + deleteTask + "]";
 	}
 }

@@ -29,8 +29,8 @@ public class BoardUserRoleService implements BoardUserRoleServiceContract {
 	 		
 	 		try {
 	 			UserBoardRelation ubr = ubrDao.findByUserAndBoard(user, board);
-	 			int burId = ubr.getRole().getId();
-	 			return burDao.findOne(burId);
+	 			BoardUserRole role = ubr.getRole();
+	 			return role;
 	 		} catch (NullPointerException e) {
 	 			return null;
 	 		}

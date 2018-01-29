@@ -33,7 +33,7 @@ public class GetCtrl {
 	@Autowired
 	TaskService taskService;
 
-  @Autowired
+	@Autowired
 	AsbUserService userService;
 	
 	@Autowired
@@ -42,7 +42,8 @@ public class GetCtrl {
 	@GetMapping("/get/BoardUserRole/{uId}&{bId}")
 	public BoardUserRole getBoardUserRole(@PathVariable int uId, @PathVariable int bId)
 	{
-		return burService.getBoardUserRole(uId, bId);
+		BoardUserRole ubr = burService.getBoardUserRole(uId, bId);
+		return ubr;
 	}
 	
 	@GetMapping("/get/boards/{userId}")

@@ -6,6 +6,6 @@ import com.revature.model.BoardUserRole;
 
 public interface BoardUserRoleDao extends JpaRepository<BoardUserRole,Integer> {
 
-	 BoardUserRole findByCreateCardAndMoveCardAndEditCardAndInviteUserAndCreateSwimLane(
-			boolean createC, boolean moveC, boolean editC, boolean inviteU, boolean createSL);
+	 BoardUserRole findByCreateCardAndEditCardAndDeleteCardAndInviteUserAndRemoveUserAndCreateSwimLaneAndDeleteSwimLaneAndCreateTaskAndDeleteTask(
+			boolean createC, boolean editC, boolean deleteC, boolean inviteU, boolean removeU, boolean createSL, boolean deleteSL, boolean createT, boolean deleteT);
 }

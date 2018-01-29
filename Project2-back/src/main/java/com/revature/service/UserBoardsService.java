@@ -35,11 +35,11 @@ public class UserBoardsService implements UserBoardsServiceContract
 	@Override
 	public Board saveBoard(Board board, int userId) 
 	{
+		// Role id for admin = 3050
 		BoardUserRole admin = new BoardUserRole();
 		admin.setId(3050);
 		
-		
-		board = boardDao.save(board);
+		boardDao.save(board);
 		
 		UserBoardRelation rel = new UserBoardRelation(
 				userDao.findOne(userId),
@@ -62,8 +62,10 @@ public class UserBoardsService implements UserBoardsServiceContract
 			return null;
 		}
 			
-		BoardUserRole existingRole = burDao.findByCreateCardAndMoveCardAndEditCardAndInviteUserAndCreateSwimLane(
-				bur.isCreateCard(), bur.isMoveCard(), bur.isEditCard(), bur.isInviteUser(), bur.isCreateSwimLane());
+		BoardUserRole existingRole = burDao.findByCreateCardAndEditCardAndDeleteCardAndInviteUserAndRemoveUserAndCreateSwimLaneAndDeleteSwimLaneAndCreateTaskAndDeleteTask
+				(bur.isCreateCard(), bur.isEditCard(), bur.isDeleteCard(), bur.isInviteUser(), bur.isRemoveUser(),
+				bur.isCreateSwimLane(), bur.isDeleteSwimLane(), bur.isCreateTask(), bur.isDeleteTask());
+		
 		if(existingRole != null) {
 			// if role already exists, get id of that role and save userboardrelation
 			bur.setId(existingRole.getId());

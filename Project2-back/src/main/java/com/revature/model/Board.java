@@ -42,11 +42,11 @@ public class Board implements Serializable
 	@Column(name="B_NAME")
 	private String name;
 	
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL,mappedBy="board")
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL,mappedBy="board",orphanRemoval = true)
 	@JsonIgnore
 	private List<UserBoardRelation> userBoardRelations = new ArrayList<>();
 	
-	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name="B_ID")
 	private List<SwimLane> swimLanes;
 

@@ -14,65 +14,66 @@ import com.revature.model.Board;
 import com.revature.model.UserBoardRelation;
 
 @Service
-public class BoardService implements BoardServiceContract{
+public class BoardService implements BoardServiceContract {
 
 	@Autowired
 	BoardDao boardDao;
-	
+
 	@Autowired
 	AsbUserDao aDao;
-	
+
 	@Autowired
 	UserBoardRelationDao relationDao;
-	
+
 	public void createBoard(Board board) {
-		
+
 		boardDao.save(board);
 	}
 
 	@Override
-	public void deleteBoard(Board b) 
-	{
+	public void deleteBoard(Board b) {
+		b = boardDao.getOne(b.getId());
+		List<UserBoardRelation> ubrList = b.getUserBoardRelations();
+		for (UserBoardRelation ubr : ubrList) 
+		{
+			ubr.setBoard(null);
+			ubr.setRole(null);
+			ubr.setUser(null);
+			relationDao.save(ubr);
+		}
 		boardDao.delete(b);
 	}
-
-	
 
 	@Override
 	public void saveBoard(Board b) {
 		boardDao.save(b);
-		
-	}
 
+	}
 
 	@Override
 	public Board ueserToBoard(int bId, int uId) {
 		AsbUser u = aDao.findOne(uId);
 		Board b = boardDao.findOne(bId);
-//		b.getUserBoards().add()
+		// b.getUserBoards().add()
 		return b;
-		
+
 	}
 
 	@Override
-	public List<Board> getAllBoards(List<UserBoardRelation> userBoardRelation) 
-	{
+	public List<Board> getAllBoards(List<UserBoardRelation> userBoardRelation) {
 		List<Board> boards = new ArrayList<>();
 		for (UserBoardRelation ub : userBoardRelation)
-			 boards.add(ub.getBoard());
+			boards.add(ub.getBoard());
 		return boards;
 	}
 
 	@Override
-	public List<Board> getAllBoardsForLoggedInUser(int userId) 
-	{
+	public List<Board> getAllBoardsForLoggedInUser(int userId) {
 		List<Board> boards = new ArrayList<>();
 		List<UserBoardRelation> relations = relationDao.findByUser(aDao.findOne(userId));
-		for (UserBoardRelation r: relations)
+		for (UserBoardRelation r : relations)
 			boards.add(r.getBoard());
 		return boards;
 	}
-	
-	
 
 }

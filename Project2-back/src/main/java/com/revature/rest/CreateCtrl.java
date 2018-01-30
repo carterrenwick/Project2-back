@@ -55,8 +55,9 @@ public class CreateCtrl {
 
 	@PostMapping("/createCard/{swimLaneId}")
 	public Card makeCard(@RequestBody Card card, @PathVariable int swimLaneId) {
-		
+		if (card.getId() == 0)
 		return cardSer.createCard(card, swimLaneId);
+		else return cardSer.updateCard(card, swimLaneId);
 	}
 
 

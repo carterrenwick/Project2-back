@@ -25,26 +25,9 @@ public class TaskService implements TaskServiceContract
 
 	public void deleteTask(Task task, int cardId) 
 	{
-		taskDao.delete(task);
-		Card c = cardDao.findOne(cardId);
-		List<Task> tList = c.getTasks();
-		boolean correctOrder = true;
-		CheckOrder: for (int i = 1; i <= tList.size()+1; i++)
-		{
-			for (Task t : tList)
-			{
-				if (t.getOrder()==i) 
-				{
-					if (!correctOrder) 
-					{
-						t.setOrder(i-1);
-						taskDao.save(t);
-					}
-					continue CheckOrder;
-				}
-				correctOrder = false;
-			}
-		}
+		taskDao.delete(task.getId());
+System.out.println(task);
+
 	}
 	
 	@Override

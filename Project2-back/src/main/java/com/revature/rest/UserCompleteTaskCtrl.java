@@ -22,9 +22,11 @@ public class UserCompleteTaskCtrl {
 	@PostMapping("/checkTask")
 	public ResponseEntity<Boolean> userCheckTask(@RequestBody Task t) {
 	
-		tServ.checkedTask(t);
+		tServ.saveTask(t);
 					
 	return	new ResponseEntity<Boolean>(HttpStatus.ACCEPTED);
 	}
+	
+	
 	
 }

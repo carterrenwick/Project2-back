@@ -29,8 +29,6 @@ public class SwimLane {
 	strategy=GenerationType.SEQUENCE)
 	private int id;
 	
-	
-	
 	@Column(name="SL_NAME")
 	private String name;
 	
@@ -39,7 +37,7 @@ public class SwimLane {
 	
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
-	@JoinColumn(name="SL_ID")	
+	@JoinColumn(name="SL_ID")
 	private List<Card> cards;
 
 	public SwimLane() {

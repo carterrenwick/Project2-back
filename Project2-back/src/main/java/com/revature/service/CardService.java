@@ -66,4 +66,17 @@ public class CardService implements CardServiceContract {
 		}
 	}
 
+	@Override
+	public Card updateCard(Card card, int swimLaneId) 
+	{
+		Card temp = cardDao.getOne(card.getId());
+		
+		temp.setDescription(card.getDescription());
+		temp.setTitle(card.getTitle());
+		temp.setOrder(card.getOrder());
+		temp.setDifficulty(card.getDifficulty());
+		
+		return cardDao.save(temp);
+	}
+
 }

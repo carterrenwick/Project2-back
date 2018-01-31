@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.revature.dao.CardDao;
 import com.revature.dao.TaskDao;
 import com.revature.model.Card;
-import com.revature.model.SwimLane;
 import com.revature.model.Task;
 
 @Service

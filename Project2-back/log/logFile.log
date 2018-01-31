@@ -1,9 +1,9 @@
-Starting Driver on LAPTOP-FOEDEIM6 with PID 13892 (C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back\target\classes started by carte in C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back)
+Starting Driver on LAPTOP-FOEDEIM6 with PID 16580 (C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back\target\classes started by carte in C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back)
 No active profile set, falling back to default profiles: default
-Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c821f8d: startup date [Tue Jan 30 21:36:37 EST 2018]; root of context hierarchy
+Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c38d10a: startup date [Wed Jan 31 08:00:14 EST 2018]; root of context hierarchy
 HV000001: Hibernate Validator 5.3.6.Final
 Tomcat initialized with port(s): 8009 (http)
-Root WebApplicationContext: initialization completed in 1469 ms
+Root WebApplicationContext: initialization completed in 1709 ms
 Mapping servlet: 'dispatcherServlet' to [/]
 Mapping filter: 'metricsFilter' to: [/*]
 Mapping filter: 'characterEncodingFilter' to: [/*]
@@ -30,34 +30,34 @@ HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] se
 HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
 Unrecognized hbm2ddl_auto value : false.  Supported values include create, create-drop, update, and validate.  Ignoring
 Initialized JPA EntityManagerFactory for persistence unit 'default'
-Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c821f8d: startup date [Tue Jan 30 21:36:37 EST 2018]; root of context hierarchy
+Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c38d10a: startup date [Wed Jan 31 08:00:14 EST 2018]; root of context hierarchy
 Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.HomeController.index()
 Mapped "{[/addUB/{uId}&{bId}],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.UserBoardRelation> com.revature.rest.AddUserToBoardCtrl.addUserToBoard(int,int,com.revature.model.BoardUserRole)
-Mapped "{[/createCard/{swimLaneId}],methods=[POST]}" onto public com.revature.model.Card com.revature.rest.CreateCtrl.makeCard(com.revature.model.Card,int)
-Mapped "{[/createSwimLane/{boardId}],methods=[POST]}" onto public com.revature.model.SwimLane com.revature.rest.CreateCtrl.makeSwimLane(com.revature.model.SwimLane,int)
-Mapped "{[/create/board/{userId}],methods=[POST]}" onto public com.revature.model.Board com.revature.rest.CreateCtrl.makeBoard(com.revature.model.Board,int)
 Mapped "{[/createTask/{cId}],methods=[POST]}" onto public com.revature.model.Task com.revature.rest.CreateCtrl.createTask(com.revature.model.Task,int)
-Mapped "{[/delete/swimlane/{boardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteSwimLane(com.revature.model.SwimLane,int)
+Mapped "{[/create/board/{userId}],methods=[POST]}" onto public com.revature.model.Board com.revature.rest.CreateCtrl.makeBoard(com.revature.model.Board,int)
+Mapped "{[/createSwimLane/{boardId}],methods=[POST]}" onto public com.revature.model.SwimLane com.revature.rest.CreateCtrl.makeSwimLane(com.revature.model.SwimLane,int)
+Mapped "{[/createCard/{swimLaneId}],methods=[POST]}" onto public com.revature.model.Card com.revature.rest.CreateCtrl.makeCard(com.revature.model.Card,int)
 Mapped "{[/delete/card/{slid}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteCard(com.revature.model.Card,int)
-Mapped "{[/delete/board],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteBoard(com.revature.model.Board)
 Mapped "{[/delete/task/{cardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteTask(com.revature.model.Task,int)
+Mapped "{[/delete/swimlane/{boardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteSwimLane(com.revature.model.SwimLane,int)
+Mapped "{[/delete/board],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteBoard(com.revature.model.Board)
 Mapped "{[/get/tasks/{id}],methods=[GET]}" onto public java.util.List<com.revature.model.Task> com.revature.rest.GetCtrl.getTasks(int)
 Mapped "{[/get/BoardUserRole/{uId}&{bId}],methods=[GET]}" onto public com.revature.model.BoardUserRole com.revature.rest.GetCtrl.getBoardUserRole(int,int)
-Mapped "{[/get/user/{username}],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.GetCtrl.getUser(java.lang.String)
 Mapped "{[/get/boards/{userId}],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.GetCtrl.getBoards(int)
+Mapped "{[/get/user/{username}],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.GetCtrl.getUser(java.lang.String)
 Mapped "{[/get/users/{boardId}],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.GetCtrl.getMembersOfBoard(int)
-Mapped "{[/logout],methods=[GET]}" onto public void com.revature.rest.LoginLogoutCtrl.logout()
 Mapped "{[/login],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.LoginLogoutCtrl.login(com.revature.model.AsbUser)
+Mapped "{[/logout],methods=[GET]}" onto public void com.revature.rest.LoginLogoutCtrl.logout()
 Mapped "{[/move/card/{cid}&{sId1}&{sId2}],methods=[GET]}" onto public void com.revature.rest.MoveCtrl.addUserToBoard(int,int,int)
 Mapped "{[/register],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.AsbUser> com.revature.rest.RegisterCtrl.registerUser(com.revature.model.AsbUser)
 Mapped "{[/getAll],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.TestCtrl.getAll()
-Mapped "{[/getAllBoards],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.TestCtrl.getAllBoards()
+Mapped "{[/getBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.getReq()
 Mapped "{[/person],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.makePerson(com.revature.model.AsbUser)
 Mapped "{[/newBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.newReq()
 Mapped "{[/C/{candy}],methods=[GET]}" onto public java.lang.String com.revature.rest.TestCtrl.newReq(java.lang.String)
-Mapped "{[/getBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.getReq()
-Mapped "{[/getARelation],methods=[GET]}" onto public com.revature.model.UserBoardRelation com.revature.rest.TestCtrl.getARelation()
+Mapped "{[/getAllBoards],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.TestCtrl.getAllBoards()
 Mapped "{[/getABoards],methods=[GET]}" onto public java.util.List<com.revature.model.UserBoardRelation> com.revature.rest.TestCtrl.getABoards()
+Mapped "{[/getARelation],methods=[GET]}" onto public com.revature.model.UserBoardRelation com.revature.rest.TestCtrl.getARelation()
 Mapped "{[/checkTask],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Boolean> com.revature.rest.UserCompleteTaskCtrl.userCheckTask(com.revature.model.Task)
 Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
 Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
@@ -65,23 +65,23 @@ Mapped URL path [/webjars/**] onto handler of type [class org.springframework.we
 Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
 Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
 Adding welcome page: class path resource [static/index.html]
+Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
 Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
-Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
 Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
 Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
 Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
 Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
 Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
 Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
-Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
 Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
 LiveReload server is running on port 35729
 Registering beans for JMX exposure on startup
 Registering beans for JMX exposure on startup
@@ -99,24 +99,93 @@ Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.s
 Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
 Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
 Tomcat started on port(s): 8009 (http)
-Started Driver in 9.561 seconds (JVM running for 10.038)
+Started Driver in 12.173 seconds (JVM running for 15.107)
 FrameworkServlet 'dispatcherServlet': initialization started
-FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+Request method 'GET' not supported
+Resolved exception caused by Handler execution: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported
 Request method 'GET' not supported
 Resolved exception caused by Handler execution: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported
 HHH000397: Using ASTQueryTranslatorFactory
 getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
 validateUser : CTaylor23 : password : com.revature.service.AsbUserService
 getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
-validateUser : CTaylor23 : password : com.revature.service.AsbUserService
+getBoardUserRole : 7050 : 10051 : com.revature.service.BoardUserRoleService
 getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
-getBoardUserRole : 7050 : 9050 : com.revature.service.BoardUserRoleService
-getMembersOfBoard : 9050 : com.revature.service.UserBoardsService
-getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
-Application shutdown requested.
-Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c821f8d: startup date [Tue Jan 30 21:36:37 EST 2018]; root of context hierarchy
+getBoardUserRole : 7050 : 10052 : com.revature.service.BoardUserRoleService
+getUser : HoJay : com.revature.service.AsbUserService
+Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c38d10a: startup date [Wed Jan 31 08:00:14 EST 2018]; root of context hierarchy
 Stopping beans in phase 0
 Unregistering JMX-exposed beans on shutdown
 Unregistering JMX-exposed beans
 Unregistering JMX-exposed beans on shutdown
 Closing JPA EntityManagerFactory for persistence unit 'default'
+Starting Driver on LAPTOP-FOEDEIM6 with PID 16580 (C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back\target\classes started by carte in C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back)
+No active profile set, falling back to default profiles: default
+Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@130e7c21: startup date [Wed Jan 31 09:15:41 EST 2018]; root of context hierarchy
+Tomcat initialized with port(s): 8009 (http)
+Root WebApplicationContext: initialization completed in 609 ms
+Mapping servlet: 'dispatcherServlet' to [/]
+Mapping filter: 'metricsFilter' to: [/*]
+Mapping filter: 'characterEncodingFilter' to: [/*]
+Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+Mapping filter: 'httpPutFormContentFilter' to: [/*]
+Mapping filter: 'requestContextFilter' to: [/*]
+Mapping filter: 'webRequestLoggingFilter' to: [/*]
+Mapping filter: 'applicationContextIdFilter' to: [/*]
+Building JPA container EntityManagerFactory for persistence unit 'default'
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.revature.model.AsbUser]
+
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaAutoConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.revature.model.AsbUser]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1080)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.revature.Driver.main(Driver.java:10)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.revature.model.AsbUser]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:229)
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.<init>(AnnotationMetadataSourceProcessorImpl.java:103)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.<init>(MetadataBuildingProcess.java:147)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:141)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:847)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:874)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:60)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:360)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:382)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:371)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 more
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : com.revature.model.AsbUser
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl$AggregatedClassLoader.findClass(ClassLoaderServiceImpl.java:217)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:226)
+	... 33 more

@@ -57,24 +57,24 @@ public class UserBoardsService implements UserBoardsServiceContract
 		Board board = new Board();
 		board.setId(bId);
 		try {
-		if(relationDao.existsByUserAndBoard(user, board)) {
-			// this user/board combo already exists so don't add to UserBoardRelation Table
-			return null;
-		}
+			if(relationDao.existsByUserAndBoard(user, board)) {
+				// this user/board combo already exists so don't add to UserBoardRelation Table
+				return null;
+			}
+				
+			BoardUserRole existingRole = burDao.findByCreateCardAndEditCardAndDeleteCardAndInviteUserAndRemoveUserAndCreateSwimLaneAndDeleteSwimLaneAndCreateTaskAndDeleteTask
+					(bur.isCreateCard(), bur.isEditCard(), bur.isDeleteCard(), bur.isInviteUser(), bur.isRemoveUser(),
+					bur.isCreateSwimLane(), bur.isDeleteSwimLane(), bur.isCreateTask(), bur.isDeleteTask());
 			
-		BoardUserRole existingRole = burDao.findByCreateCardAndEditCardAndDeleteCardAndInviteUserAndRemoveUserAndCreateSwimLaneAndDeleteSwimLaneAndCreateTaskAndDeleteTask
-				(bur.isCreateCard(), bur.isEditCard(), bur.isDeleteCard(), bur.isInviteUser(), bur.isRemoveUser(),
-				bur.isCreateSwimLane(), bur.isDeleteSwimLane(), bur.isCreateTask(), bur.isDeleteTask());
-		
-		if(existingRole != null) {
-			// if role already exists, get id of that role and save userboardrelation
-			bur.setId(existingRole.getId());
-			return relationDao.save(new UserBoardRelation(user,board,bur));
-		} else {
-			// if role doesn't exist, save that new role along with userboardrelation
-			bur = burDao.save(bur);
-			return relationDao.save(new UserBoardRelation(user,board,bur));
-		}
+			if(existingRole != null) {
+				// if role already exists, get id of that role and save userboardrelation
+				bur.setId(existingRole.getId());
+				return relationDao.save(new UserBoardRelation(user,board,bur));
+			} else {
+				// if role doesn't exist, save that new role along with userboardrelation
+				bur = burDao.save(bur);
+				return relationDao.save(new UserBoardRelation(user,board,bur));
+			}
 		} catch (NonUniqueResultException e) {
 			return null;
 		}

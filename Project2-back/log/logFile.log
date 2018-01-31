@@ -1,120 +1,181 @@
-Starting Driver on LAPTOP-FOEDEIM6 with PID 13892 (C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back\target\classes started by carte in C:\Users\carte\my_git_repos\Agile-Project-Management-System\Project2-back\Project2-back)
-No active profile set, falling back to default profiles: default
-Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c821f8d: startup date [Tue Jan 30 21:36:37 EST 2018]; root of context hierarchy
-HV000001: Hibernate Validator 5.3.6.Final
-Tomcat initialized with port(s): 8009 (http)
-Root WebApplicationContext: initialization completed in 1469 ms
-Mapping servlet: 'dispatcherServlet' to [/]
-Mapping filter: 'metricsFilter' to: [/*]
-Mapping filter: 'characterEncodingFilter' to: [/*]
-Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-Mapping filter: 'httpPutFormContentFilter' to: [/*]
-Mapping filter: 'requestContextFilter' to: [/*]
-Mapping filter: 'webRequestLoggingFilter' to: [/*]
-Mapping filter: 'applicationContextIdFilter' to: [/*]
-Building JPA container EntityManagerFactory for persistence unit 'default'
-HHH000204: Processing PersistenceUnitInfo [
-	name: default
-	...]
-HHH000412: Hibernate Core {5.0.12.Final}
-HHH000206: hibernate.properties not found
-HHH000021: Bytecode provider name : javassist
-HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
-HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
-HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
-HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
-HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
-HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
-HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
-HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
-Unrecognized hbm2ddl_auto value : false.  Supported values include create, create-drop, update, and validate.  Ignoring
-Initialized JPA EntityManagerFactory for persistence unit 'default'
-Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c821f8d: startup date [Tue Jan 30 21:36:37 EST 2018]; root of context hierarchy
-Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.HomeController.index()
-Mapped "{[/addUB/{uId}&{bId}],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.UserBoardRelation> com.revature.rest.AddUserToBoardCtrl.addUserToBoard(int,int,com.revature.model.BoardUserRole)
-Mapped "{[/createCard/{swimLaneId}],methods=[POST]}" onto public com.revature.model.Card com.revature.rest.CreateCtrl.makeCard(com.revature.model.Card,int)
-Mapped "{[/createSwimLane/{boardId}],methods=[POST]}" onto public com.revature.model.SwimLane com.revature.rest.CreateCtrl.makeSwimLane(com.revature.model.SwimLane,int)
-Mapped "{[/create/board/{userId}],methods=[POST]}" onto public com.revature.model.Board com.revature.rest.CreateCtrl.makeBoard(com.revature.model.Board,int)
-Mapped "{[/createTask/{cId}],methods=[POST]}" onto public com.revature.model.Task com.revature.rest.CreateCtrl.createTask(com.revature.model.Task,int)
-Mapped "{[/delete/swimlane/{boardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteSwimLane(com.revature.model.SwimLane,int)
-Mapped "{[/delete/card/{slid}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteCard(com.revature.model.Card,int)
-Mapped "{[/delete/board],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteBoard(com.revature.model.Board)
-Mapped "{[/delete/task/{cardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteTask(com.revature.model.Task,int)
-Mapped "{[/get/tasks/{id}],methods=[GET]}" onto public java.util.List<com.revature.model.Task> com.revature.rest.GetCtrl.getTasks(int)
-Mapped "{[/get/BoardUserRole/{uId}&{bId}],methods=[GET]}" onto public com.revature.model.BoardUserRole com.revature.rest.GetCtrl.getBoardUserRole(int,int)
-Mapped "{[/get/user/{username}],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.GetCtrl.getUser(java.lang.String)
-Mapped "{[/get/boards/{userId}],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.GetCtrl.getBoards(int)
-Mapped "{[/get/users/{boardId}],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.GetCtrl.getMembersOfBoard(int)
-Mapped "{[/logout],methods=[GET]}" onto public void com.revature.rest.LoginLogoutCtrl.logout()
-Mapped "{[/login],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.LoginLogoutCtrl.login(com.revature.model.AsbUser)
-Mapped "{[/move/card/{cid}&{sId1}&{sId2}],methods=[GET]}" onto public void com.revature.rest.MoveCtrl.addUserToBoard(int,int,int)
-Mapped "{[/register],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.AsbUser> com.revature.rest.RegisterCtrl.registerUser(com.revature.model.AsbUser)
-Mapped "{[/getAll],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.TestCtrl.getAll()
-Mapped "{[/getAllBoards],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.TestCtrl.getAllBoards()
-Mapped "{[/person],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.makePerson(com.revature.model.AsbUser)
-Mapped "{[/newBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.newReq()
-Mapped "{[/C/{candy}],methods=[GET]}" onto public java.lang.String com.revature.rest.TestCtrl.newReq(java.lang.String)
-Mapped "{[/getBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.getReq()
-Mapped "{[/getARelation],methods=[GET]}" onto public com.revature.model.UserBoardRelation com.revature.rest.TestCtrl.getARelation()
-Mapped "{[/getABoards],methods=[GET]}" onto public java.util.List<com.revature.model.UserBoardRelation> com.revature.rest.TestCtrl.getABoards()
-Mapped "{[/checkTask],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Boolean> com.revature.rest.UserCompleteTaskCtrl.userCheckTask(com.revature.model.Task)
-Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-Adding welcome page: class path resource [static/index.html]
-Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
-Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
-Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
-Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
-Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
-Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
-Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
-Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
-LiveReload server is running on port 35729
-Registering beans for JMX exposure on startup
-Registering beans for JMX exposure on startup
-Starting beans in phase 0
-Located managed bean 'auditEventsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=auditEventsEndpoint]
-Located managed bean 'requestMappingEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=requestMappingEndpoint]
-Located managed bean 'environmentEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=environmentEndpoint]
-Located managed bean 'healthEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=healthEndpoint]
-Located managed bean 'beansEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=beansEndpoint]
-Located managed bean 'infoEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=infoEndpoint]
-Located managed bean 'loggersEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=loggersEndpoint]
-Located managed bean 'metricsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=metricsEndpoint]
-Located managed bean 'traceEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=traceEndpoint]
-Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=dumpEndpoint]
-Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
-Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
-Tomcat started on port(s): 8009 (http)
-Started Driver in 9.561 seconds (JVM running for 10.038)
-FrameworkServlet 'dispatcherServlet': initialization started
-FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
-Request method 'GET' not supported
-Resolved exception caused by Handler execution: org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported
-HHH000397: Using ASTQueryTranslatorFactory
-getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
+getUser : HoJay : com.revature.service.AsbUserService
+addUserToBoard : 8050 : 10051 : BoardUserRole [id=0, roleName=Custom Role, createCard=true, editCard=true, deleteCard=true, inviteUser=false, removeUser=true, createSwimLane=false, deleteSwimLane=true, createTask=false, deleteTask=true] : com.revature.service.UserBoardsService
+getMembersOfBoard : 10051 : com.revature.service.UserBoardsService
+getMembersOfBoard : 10051 : com.revature.service.UserBoardsService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+createSwimLane : SwimLane [id=5050, name=iiiiiiiiiiiiiiiiiiii, order=1, cards=[]] : 10051 : com.revature.service.SwimLaneService
+createSwimLane : SwimLane [id=5051, name=Swim Lane, order=2, cards=[]] : 10051 : com.revature.service.SwimLaneService
+createSwimLane : SwimLane [id=5052, name=Rails, order=3, cards=[]] : 10051 : com.revature.service.SwimLaneService
+createSwimLane : SwimLane [id=5053, name=Rails, order=4, cards=[]] : 10051 : com.revature.service.SwimLaneService
+deleteSwimLane : SwimLane [id=5053, name=Rails, order=4, cards=[]] : 10051 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getMembersOfBoard : 10051 : com.revature.service.UserBoardsService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getMembersOfBoard : 10051 : com.revature.service.UserBoardsService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6050, difficulty=-22, title=Legnedary, description=, order=1, tasks=null] : 5050 : com.revature.service.CardService
+updateOrder : 5050 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6051, difficulty=10, title=Legnedary, description=, order=2, tasks=null] : 5050 : com.revature.service.CardService
+updateOrder : 5050 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6052, difficulty=2, title=Please, description=Why, order=1, tasks=null] : 5051 : com.revature.service.CardService
+updateOrder : 5051 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6053, difficulty=3, title=Numero dos, description=, order=2, tasks=null] : 5051 : com.revature.service.CardService
+updateOrder : 5051 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+createSwimLane : SwimLane [id=5054, name=Antha, order=3, cards=[]] : 10051 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6054, difficulty=2, title=Plz, description=yers, order=1, tasks=null] : 5054 : com.revature.service.CardService
+updateOrder : 5054 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6055, difficulty=4, title=So its ok, description=, order=1, tasks=null] : 5052 : com.revature.service.CardService
+updateOrder : 5052 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6056, difficulty=4, title=Needs numero, description=YESSSDSDSDS, order=3, tasks=null] : 5050 : com.revature.service.CardService
+updateOrder : 5050 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+createTask : Make a task : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+createTask : How slow can i go : 0 : com.revature.service.TaskService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getAllTask : 6051 : com.revature.service.TaskService
+createTask : cmon : 6051 : com.revature.service.TaskService
+createTask : maybe : 6051 : com.revature.service.TaskService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getAllTask : 6053 : com.revature.service.TaskService
+createTask : How : 6053 : com.revature.service.TaskService
+getAllTask : 6053 : com.revature.service.TaskService
+getAllTask : 6056 : com.revature.service.TaskService
+getAllTask : 6051 : com.revature.service.TaskService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getMembersOfBoard : 10051 : com.revature.service.UserBoardsService
+getAllTask : 6051 : com.revature.service.TaskService
+getAllTask : 6056 : com.revature.service.TaskService
+getAllTask : 6056 : com.revature.service.TaskService
+getAllTask : 6051 : com.revature.service.TaskService
+getAllTask : 6051 : com.revature.service.TaskService
+getAllTask : 6056 : com.revature.service.TaskService
+validateUser : HoJay : 123 : com.revature.service.AsbUserService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getAllTask : 6056 : com.revature.service.TaskService
+getAllTask : 6051 : com.revature.service.TaskService
+getAllTask : 6051 : com.revature.service.TaskService
+getAllTask : 6056 : com.revature.service.TaskService
+createTask : One : 6056 : com.revature.service.TaskService
+createTask : Two : 6056 : com.revature.service.TaskService
+createTask : Three : 6056 : com.revature.service.TaskService
+deleteTask : Task [id=8054, description=Two, completed=false] : 6056 : com.revature.service.TaskService
+createTask : Two : 6056 : com.revature.service.TaskService
+saveTask : Task [id=8056, description=Two, completed=true] : com.revature.service.TaskService
+getAllTask : 6051 : com.revature.service.TaskService
+getAllTask : 6056 : com.revature.service.TaskService
+getAllTask : 6054 : com.revature.service.TaskService
+createTask : One  : 6054 : com.revature.service.TaskService
+createTask : Two : 6054 : com.revature.service.TaskService
+saveTask : Task [id=8058, description=Two, completed=true] : com.revature.service.TaskService
+getAllTask : 6054 : com.revature.service.TaskService
+getAllTask : 6055 : com.revature.service.TaskService
+createTask : One : 6055 : com.revature.service.TaskService
+createTask : Two : 6055 : com.revature.service.TaskService
+createTask : Three : 6055 : com.revature.service.TaskService
+saveTask : Task [id=8061, description=Three, completed=true] : com.revature.service.TaskService
+getAllTask : 6055 : com.revature.service.TaskService
+saveTask : Task [id=8062, description=null, completed=true] : com.revature.service.TaskService
+getAllTask : 6055 : com.revature.service.TaskService
+deleteTask : Task [id=8059, description=One, completed=false] : 6055 : com.revature.service.TaskService
+getAllTask : 6055 : com.revature.service.TaskService
+getAllTask : 6054 : com.revature.service.TaskService
 validateUser : CTaylor23 : password : com.revature.service.AsbUserService
 getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
+getBoardUserRole : 7050 : 10051 : com.revature.service.BoardUserRoleService
+getAllTask : 6050 : com.revature.service.TaskService
+getAllTask : 6051 : com.revature.service.TaskService
+getMembersOfBoard : 10051 : com.revature.service.UserBoardsService
+getAllTask : 6050 : com.revature.service.TaskService
+createTask : Can I? : 6050 : com.revature.service.TaskService
+validateUser : HoJay : 123 : com.revature.service.AsbUserService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10051 : com.revature.service.BoardUserRoleService
+getAllTask : 6050 : com.revature.service.TaskService
+getUser : HoJay : com.revature.service.AsbUserService
+validateUser : CTaylor23 : 123 : com.revature.service.AsbUserService
 validateUser : CTaylor23 : password : com.revature.service.AsbUserService
 getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
-getBoardUserRole : 7050 : 9050 : com.revature.service.BoardUserRoleService
-getMembersOfBoard : 9050 : com.revature.service.UserBoardsService
-getAllBoardsForLoggedInUser : 7050 : com.revature.service.BoardService
+getBoardUserRole : 7050 : 10051 : com.revature.service.BoardUserRoleService
+getAllTask : 6050 : com.revature.service.TaskService
+deleteTask : Task [id=8063, description=Can I?, completed=false] : 6050 : com.revature.service.TaskService
+registerAsbUser : AsbUser [id=8051, username=JJZilla, password=123, firstName=Jay, lastName=HO, userBoardRelations=[]] : com.revature.service.AsbUserService
+validateUser : JJZilla : 123 : com.revature.service.AsbUserService
+getAllBoardsForLoggedInUser : 8051 : com.revature.service.BoardService
+saveBoard : Board [id=10052, name=Backlog, userBoardRelations=[], swimLanes=[]] : 8051 : com.revature.service.UserBoardsService
+getBoardUserRole : 8051 : 10052 : com.revature.service.BoardUserRoleService
+createSwimLane : SwimLane [id=5055, name=Swimmer, order=1, cards=[]] : 10052 : com.revature.service.SwimLaneService
+createSwimLane : SwimLane [id=5056, name=Numreo dos, order=2, cards=[]] : 10052 : com.revature.service.SwimLaneService
+createSwimLane : SwimLane [id=5057, name=Numreo dos, order=3, cards=[]] : 10052 : com.revature.service.SwimLaneService
+getAllTask : 6050 : com.revature.service.TaskService
+getAllTask : 6050 : com.revature.service.TaskService
+createCard : Card [id=6057, difficulty=10, title=DLCCCC, description=howo, order=1, tasks=null] : 5055 : com.revature.service.CardService
+updateOrder : 5055 : com.revature.service.SwimLaneService
+getAllTask : 6050 : com.revature.service.TaskService
+createCard : Card [id=6058, difficulty=5, title=foshjo, description=hey, order=2, tasks=null] : 5055 : com.revature.service.CardService
+updateOrder : 5055 : com.revature.service.SwimLaneService
+getAllTask : 6050 : com.revature.service.TaskService
+createCard : Card [id=6059, difficulty=10, title=Need at least 3, description=close, order=1, tasks=null] : 5056 : com.revature.service.CardService
+updateOrder : 5056 : com.revature.service.SwimLaneService
+getUser : HoJay : com.revature.service.AsbUserService
+addUserToBoard : 8050 : 10052 : BoardUserRole [id=6050, roleName=Custom Role, createCard=false, editCard=false, deleteCard=false, inviteUser=false, removeUser=false, createSwimLane=false, deleteSwimLane=false, createTask=false, deleteTask=false] : com.revature.service.UserBoardsService
+getUser : CTaylor23 : com.revature.service.AsbUserService
+addUserToBoard : 7050 : 10052 : BoardUserRole [id=3050, roleName=Custom Role, createCard=true, editCard=true, deleteCard=true, inviteUser=true, removeUser=true, createSwimLane=true, deleteSwimLane=true, createTask=true, deleteTask=true] : com.revature.service.UserBoardsService
+getMembersOfBoard : 10052 : com.revature.service.UserBoardsService
+getAllBoardsForLoggedInUser : 8051 : com.revature.service.BoardService
+getBoardUserRole : 8051 : 10052 : com.revature.service.BoardUserRoleService
+getAllTask : 6057 : com.revature.service.TaskService
+createTask : Idunno : 6057 : com.revature.service.TaskService
+createTask : Thors Hammer : 6057 : com.revature.service.TaskService
+createTask : Hulks fists : 6057 : com.revature.service.TaskService
+saveTask : Task [id=8066, description=Hulks fists, completed=true] : com.revature.service.TaskService
+updateCard : Card [id=6057, difficulty=10, title=DLCCCC, description=howo, order=0, tasks=null] : 5055 : com.revature.service.CardService
+getAllTask : 6057 : com.revature.service.TaskService
+getAllTask : 6057 : com.revature.service.TaskService
+deleteTask : Task [id=8064, description=Idunno, completed=false] : 6057 : com.revature.service.TaskService
+getAllTask : 6057 : com.revature.service.TaskService
+saveTask : Task [id=8067, description=null, completed=false] : com.revature.service.TaskService
+getAllTask : 6057 : com.revature.service.TaskService
+saveTask : Task [id=8068, description=null, completed=true] : com.revature.service.TaskService
+getAllTask : 6057 : com.revature.service.TaskService
+validateUser : HoJay : 123 : com.revature.service.AsbUserService
+getAllBoardsForLoggedInUser : 8050 : com.revature.service.BoardService
+getBoardUserRole : 8050 : 10052 : com.revature.service.BoardUserRoleService
+getAllTask : 6058 : com.revature.service.TaskService
+getAllTask : 6057 : com.revature.service.TaskService
+saveTask : Task [id=8069, description=null, completed=true] : com.revature.service.TaskService
+getAllTask : 6057 : com.revature.service.TaskService
 Application shutdown requested.
-Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2c821f8d: startup date [Tue Jan 30 21:36:37 EST 2018]; root of context hierarchy
+Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@aab40a0: startup date [Tue Jan 30 23:16:49 EST 2018]; root of context hierarchy
 Stopping beans in phase 0
 Unregistering JMX-exposed beans on shutdown
 Unregistering JMX-exposed beans

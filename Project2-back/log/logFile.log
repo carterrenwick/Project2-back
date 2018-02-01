@@ -1,0 +1,250 @@
+Starting Driver on LAPTOP-RI14QS5B with PID 12632 (C:\Users\james\my_git_repos\Project-2\Project2-back\Project2-back\target\classes started by james in C:\Users\james\my_git_repos\Project-2\Project2-back\Project2-back)
+No active profile set, falling back to default profiles: default
+Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e71fea: startup date [Wed Jan 31 18:00:25 EST 2018]; root of context hierarchy
+HV000001: Hibernate Validator 5.3.6.Final
+Tomcat initialized with port(s): 8009 (http)
+Root WebApplicationContext: initialization completed in 1441 ms
+Mapping servlet: 'dispatcherServlet' to [/]
+Mapping filter: 'metricsFilter' to: [/*]
+Mapping filter: 'characterEncodingFilter' to: [/*]
+Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+Mapping filter: 'httpPutFormContentFilter' to: [/*]
+Mapping filter: 'requestContextFilter' to: [/*]
+Mapping filter: 'webRequestLoggingFilter' to: [/*]
+Mapping filter: 'applicationContextIdFilter' to: [/*]
+Building JPA container EntityManagerFactory for persistence unit 'default'
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+HHH000412: Hibernate Core {5.0.12.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+Unrecognized hbm2ddl_auto value : false.  Supported values include create, create-drop, update, and validate.  Ignoring
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e71fea: startup date [Wed Jan 31 18:00:25 EST 2018]; root of context hierarchy
+Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.HomeController.index()
+Mapped "{[/addUB/{uId}&{bId}],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.UserBoardRelation> com.revature.rest.AddUserToBoardCtrl.addUserToBoard(int,int,com.revature.model.BoardUserRole)
+Mapped "{[/createCard/{swimLaneId}],methods=[POST]}" onto public com.revature.model.Card com.revature.rest.CreateCtrl.makeCard(com.revature.model.Card,int)
+Mapped "{[/createTask/{cId}],methods=[POST]}" onto public com.revature.model.Task com.revature.rest.CreateCtrl.createTask(com.revature.model.Task,int)
+Mapped "{[/create/board/{userId}],methods=[POST]}" onto public com.revature.model.Board com.revature.rest.CreateCtrl.makeBoard(com.revature.model.Board,int)
+Mapped "{[/createSwimLane/{boardId}],methods=[POST]}" onto public com.revature.model.SwimLane com.revature.rest.CreateCtrl.makeSwimLane(com.revature.model.SwimLane,int)
+Mapped "{[/delete/task/{cardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteTask(com.revature.model.Task,int)
+Mapped "{[/delete/swimlane/{boardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteSwimLane(com.revature.model.SwimLane,int)
+Mapped "{[/delete/board],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteBoard(com.revature.model.Board)
+Mapped "{[/delete/card/{slid}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteCard(com.revature.model.Card,int)
+Mapped "{[/get/users/{boardId}],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.GetCtrl.getMembersOfBoard(int)
+Mapped "{[/get/tasks/{id}],methods=[GET]}" onto public java.util.List<com.revature.model.Task> com.revature.rest.GetCtrl.getTasks(int)
+Mapped "{[/get/BoardUserRole/{uId}&{bId}],methods=[GET]}" onto public com.revature.model.BoardUserRole com.revature.rest.GetCtrl.getBoardUserRole(int,int)
+Mapped "{[/get/user/{username}],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.GetCtrl.getUser(java.lang.String)
+Mapped "{[/get/boards/{userId}],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.GetCtrl.getBoards(int)
+Mapped "{[/login],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.LoginLogoutCtrl.login(com.revature.model.AsbUser)
+Mapped "{[/logout],methods=[GET]}" onto public void com.revature.rest.LoginLogoutCtrl.logout()
+Mapped "{[/move/card/{cid}&{sId1}&{sId2}],methods=[GET]}" onto public void com.revature.rest.MoveCtrl.addUserToBoard(int,int,int)
+Mapped "{[/register],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.AsbUser> com.revature.rest.RegisterCtrl.registerUser(com.revature.model.AsbUser)
+Mapped "{[/getAll],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.TestCtrl.getAll()
+Mapped "{[/getBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.getReq()
+Mapped "{[/getAllBoards],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.TestCtrl.getAllBoards()
+Mapped "{[/person],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.makePerson(com.revature.model.AsbUser)
+Mapped "{[/newBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.newReq()
+Mapped "{[/C/{candy}],methods=[GET]}" onto public java.lang.String com.revature.rest.TestCtrl.newReq(java.lang.String)
+Mapped "{[/getARelation],methods=[GET]}" onto public com.revature.model.UserBoardRelation com.revature.rest.TestCtrl.getARelation()
+Mapped "{[/getABoards],methods=[GET]}" onto public java.util.List<com.revature.model.UserBoardRelation> com.revature.rest.TestCtrl.getABoards()
+Mapped "{[/checkTask],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Boolean> com.revature.rest.UserCompleteTaskCtrl.userCheckTask(com.revature.model.Task)
+Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Adding welcome page: class path resource [static/index.html]
+Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+LiveReload server is running on port 35729
+Registering beans for JMX exposure on startup
+Registering beans for JMX exposure on startup
+Starting beans in phase 0
+Located managed bean 'auditEventsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=auditEventsEndpoint]
+Located managed bean 'requestMappingEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=requestMappingEndpoint]
+Located managed bean 'environmentEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=environmentEndpoint]
+Located managed bean 'healthEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=healthEndpoint]
+Located managed bean 'beansEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=beansEndpoint]
+Located managed bean 'infoEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=infoEndpoint]
+Located managed bean 'loggersEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=loggersEndpoint]
+Located managed bean 'metricsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=metricsEndpoint]
+Located managed bean 'traceEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=traceEndpoint]
+Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=dumpEndpoint]
+Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
+Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
+Tomcat started on port(s): 8009 (http)
+Started Driver in 9.882 seconds (JVM running for 10.484)
+FrameworkServlet 'dispatcherServlet': initialization started
+FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+HHH000397: Using ASTQueryTranslatorFactory
+registerAsbUser : AsbUser [id=9050, username=jamesholzer, password=123, firstName=James, lastName=Holzer, userBoardRelations=[]] : com.revature.service.AsbUserService
+validateUser : jamesholzer : 123 : com.revature.service.AsbUserService
+getAllBoardsForLoggedInUser : 9050 : com.revature.service.BoardService
+saveBoard : Board [id=11050, name=Card Order, userBoardRelations=[], swimLanes=[]] : 9050 : com.revature.service.UserBoardsService
+getBoardUserRole : 9050 : 11050 : com.revature.service.BoardUserRoleService
+createSwimLane : SwimLane [id=5100, name=Swim One, order=1, cards=[]] : 11050 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6100, difficulty=1, title=One, description=, order=1, tasks=null] : 5100 : com.revature.service.CardService
+updateOrder : 5100 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6101, difficulty=2, title=Two, description=, order=2, tasks=null] : 5100 : com.revature.service.CardService
+updateOrder : 5100 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6102, difficulty=3, title=Three, description=, order=3, tasks=null] : 5100 : com.revature.service.CardService
+updateOrder : 5100 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6103, difficulty=4, title=Four, description=, order=4, tasks=null] : 5100 : com.revature.service.CardService
+updateOrder : 5100 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6104, difficulty=5, title=Four, description=, order=5, tasks=null] : 5100 : com.revature.service.CardService
+updateOrder : 5100 : com.revature.service.SwimLaneService
+getAllTask : 0 : com.revature.service.TaskService
+getAllTask : 0 : com.revature.service.TaskService
+createCard : Card [id=6105, difficulty=5, title=Four, description=, order=6, tasks=null] : 5100 : com.revature.service.CardService
+updateOrder : 5100 : com.revature.service.SwimLaneService
+Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e71fea: startup date [Wed Jan 31 18:00:25 EST 2018]; root of context hierarchy
+Stopping beans in phase 0
+Unregistering JMX-exposed beans on shutdown
+Unregistering JMX-exposed beans
+Unregistering JMX-exposed beans on shutdown
+Closing JPA EntityManagerFactory for persistence unit 'default'
+Starting Driver on LAPTOP-RI14QS5B with PID 12632 (C:\Users\james\my_git_repos\Project-2\Project2-back\Project2-back\target\classes started by james in C:\Users\james\my_git_repos\Project-2\Project2-back\Project2-back)
+No active profile set, falling back to default profiles: default
+Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a84799d: startup date [Wed Jan 31 18:08:40 EST 2018]; root of context hierarchy
+Tomcat initialized with port(s): 8009 (http)
+Root WebApplicationContext: initialization completed in 670 ms
+Mapping servlet: 'dispatcherServlet' to [/]
+Mapping filter: 'metricsFilter' to: [/*]
+Mapping filter: 'characterEncodingFilter' to: [/*]
+Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+Mapping filter: 'httpPutFormContentFilter' to: [/*]
+Mapping filter: 'requestContextFilter' to: [/*]
+Mapping filter: 'webRequestLoggingFilter' to: [/*]
+Mapping filter: 'applicationContextIdFilter' to: [/*]
+Building JPA container EntityManagerFactory for persistence unit 'default'
+HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+HHH90000014: Found use of deprecated [org.hibernate.id.SequenceHiLoGenerator] sequence-based id generator; use org.hibernate.id.enhanced.SequenceStyleGenerator instead.  See Hibernate Domain Model Mapping Guide for details.
+Unrecognized hbm2ddl_auto value : false.  Supported values include create, create-drop, update, and validate.  Ignoring
+Initialized JPA EntityManagerFactory for persistence unit 'default'
+Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a84799d: startup date [Wed Jan 31 18:08:40 EST 2018]; root of context hierarchy
+Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.revature.HomeController.index()
+Mapped "{[/addUB/{uId}&{bId}],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.UserBoardRelation> com.revature.rest.AddUserToBoardCtrl.addUserToBoard(int,int,com.revature.model.BoardUserRole)
+Mapped "{[/createCard/{swimLaneId}],methods=[POST]}" onto public com.revature.model.Card com.revature.rest.CreateCtrl.makeCard(com.revature.model.Card,int)
+Mapped "{[/createTask/{cId}],methods=[POST]}" onto public com.revature.model.Task com.revature.rest.CreateCtrl.createTask(com.revature.model.Task,int)
+Mapped "{[/create/board/{userId}],methods=[POST]}" onto public com.revature.model.Board com.revature.rest.CreateCtrl.makeBoard(com.revature.model.Board,int)
+Mapped "{[/createSwimLane/{boardId}],methods=[POST]}" onto public com.revature.model.SwimLane com.revature.rest.CreateCtrl.makeSwimLane(com.revature.model.SwimLane,int)
+Mapped "{[/delete/task/{cardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteTask(com.revature.model.Task,int)
+Mapped "{[/delete/swimlane/{boardId}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteSwimLane(com.revature.model.SwimLane,int)
+Mapped "{[/delete/board],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteBoard(com.revature.model.Board)
+Mapped "{[/delete/card/{slid}],methods=[POST]}" onto public void com.revature.rest.DeleteCtrl.deleteCard(com.revature.model.Card,int)
+Mapped "{[/get/users/{boardId}],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.GetCtrl.getMembersOfBoard(int)
+Mapped "{[/get/tasks/{id}],methods=[GET]}" onto public java.util.List<com.revature.model.Task> com.revature.rest.GetCtrl.getTasks(int)
+Mapped "{[/get/BoardUserRole/{uId}&{bId}],methods=[GET]}" onto public com.revature.model.BoardUserRole com.revature.rest.GetCtrl.getBoardUserRole(int,int)
+Mapped "{[/get/user/{username}],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.GetCtrl.getUser(java.lang.String)
+Mapped "{[/get/boards/{userId}],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.GetCtrl.getBoards(int)
+Mapped "{[/login],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.LoginLogoutCtrl.login(com.revature.model.AsbUser)
+Mapped "{[/logout],methods=[GET]}" onto public void com.revature.rest.LoginLogoutCtrl.logout()
+Mapped "{[/move/card/{cid}&{sId1}&{sId2}],methods=[GET]}" onto public void com.revature.rest.MoveCtrl.addUserToBoard(int,int,int)
+Mapped "{[/register],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.revature.model.AsbUser> com.revature.rest.RegisterCtrl.registerUser(com.revature.model.AsbUser)
+Mapped "{[/getAll],methods=[GET]}" onto public java.util.List<com.revature.model.AsbUser> com.revature.rest.TestCtrl.getAll()
+Mapped "{[/getBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.getReq()
+Mapped "{[/getAllBoards],methods=[GET]}" onto public java.util.List<com.revature.model.Board> com.revature.rest.TestCtrl.getAllBoards()
+Mapped "{[/person],methods=[POST]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.makePerson(com.revature.model.AsbUser)
+Mapped "{[/newBobbert],methods=[GET]}" onto public com.revature.model.AsbUser com.revature.rest.TestCtrl.newReq()
+Mapped "{[/C/{candy}],methods=[GET]}" onto public java.lang.String com.revature.rest.TestCtrl.newReq(java.lang.String)
+Mapped "{[/getARelation],methods=[GET]}" onto public com.revature.model.UserBoardRelation com.revature.rest.TestCtrl.getARelation()
+Mapped "{[/getABoards],methods=[GET]}" onto public java.util.List<com.revature.model.UserBoardRelation> com.revature.rest.TestCtrl.getABoards()
+Mapped "{[/checkTask],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Boolean> com.revature.rest.UserCompleteTaskCtrl.userCheckTask(com.revature.model.Task)
+Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Adding welcome page: class path resource [static/index.html]
+Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+LiveReload server is running on port 35729
+Registering beans for JMX exposure on startup
+Registering beans for JMX exposure on startup
+Starting beans in phase 0
+Located managed bean 'auditEventsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=auditEventsEndpoint]
+Located managed bean 'requestMappingEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=requestMappingEndpoint]
+Located managed bean 'environmentEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=environmentEndpoint]
+Located managed bean 'healthEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=healthEndpoint]
+Located managed bean 'beansEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=beansEndpoint]
+Located managed bean 'infoEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=infoEndpoint]
+Located managed bean 'loggersEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=loggersEndpoint]
+Located managed bean 'metricsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=metricsEndpoint]
+Located managed bean 'traceEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=traceEndpoint]
+Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=dumpEndpoint]
+Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
+Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
+Tomcat started on port(s): 8009 (http)
+Started Driver in 7.432 seconds (JVM running for 502.926)
+FrameworkServlet 'dispatcherServlet': initialization started
+FrameworkServlet 'dispatcherServlet': initialization completed in 4 ms
+HHH000397: Using ASTQueryTranslatorFactory
+getAllBoardsForLoggedInUser : 9050 : com.revature.service.BoardService
+getBoardUserRole : 9050 : 11050 : com.revature.service.BoardUserRoleService
+getAllTask : 6104 : com.revature.service.TaskService
+updateCard : Card [id=6104, difficulty=10, title=Four, description=, order=0, tasks=null] : 5100 : com.revature.service.CardService
+getAllBoardsForLoggedInUser : 9050 : com.revature.service.BoardService
+getBoardUserRole : 9050 : 11050 : com.revature.service.BoardUserRoleService
+Application shutdown requested.
+Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a84799d: startup date [Wed Jan 31 18:08:40 EST 2018]; root of context hierarchy
+Stopping beans in phase 0
+Unregistering JMX-exposed beans on shutdown
+Unregistering JMX-exposed beans
+Unregistering JMX-exposed beans on shutdown
+Closing JPA EntityManagerFactory for persistence unit 'default'

@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -38,6 +39,7 @@ public class SwimLane {
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
 	@JoinColumn(name="SL_ID")
+	@OrderBy("order ASC")
 	private List<Card> cards;
 
 	public SwimLane() {

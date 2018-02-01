@@ -74,8 +74,6 @@ public class BoardService implements BoardServiceContract {
 		for (UserBoardRelation r : relations)
 			boards.add(r.getBoard());
 		
-		
-		
 		return boards;
 	}
 

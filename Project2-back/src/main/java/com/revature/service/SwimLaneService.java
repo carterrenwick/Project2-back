@@ -101,4 +101,13 @@ public class SwimLaneService implements SwimLaneServiceContract{
 		}
 	}
 
+
+	@Override
+	public void updateSwimLane(SwimLane swimLane) 
+	{
+		swimLaneDao.save(swimLane);
+	}
+
+	
+	
 }

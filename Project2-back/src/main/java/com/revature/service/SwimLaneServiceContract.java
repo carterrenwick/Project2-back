@@ -8,5 +8,5 @@ public interface SwimLaneServiceContract
 	public SwimLane createSwimLane(SwimLane swimLane, int boardId);
 	public void moveCard(int cId, int sId1, int sId2);
 	public void updateOrder(int sid);
-
+	public void updateSwimLane(SwimLane swimLane);
 }

@@ -73,6 +73,7 @@ public class BoardService implements BoardServiceContract {
 		List<UserBoardRelation> relations = relationDao.findByUser(aDao.findOne(userId));
 		for (UserBoardRelation r : relations)
 			boards.add(r.getBoard());
+		
 		return boards;
 	}
 
